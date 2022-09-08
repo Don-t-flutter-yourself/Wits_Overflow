@@ -26,3 +26,10 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 
+
+/////Thabelo:
+firebase.initializeApp(firebaseConfig) ;
+export default firebase;
+/////Thabelo:
+
+
