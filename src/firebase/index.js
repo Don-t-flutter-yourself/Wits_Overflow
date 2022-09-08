@@ -1,6 +1,13 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
+//////Thabelo:
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
+//////Thabelo:
+
+
+
 const firebaseConfig = {
     apiKey: "AIzaSyC7hrNGwlQwGkvHwLWUklWVgjpQQ5ZPiV8",
 
