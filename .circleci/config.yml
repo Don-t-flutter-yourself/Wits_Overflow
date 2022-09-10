@@ -1,0 +1,29 @@
+version: 2.1
+
+jobs:     
+
+  install-and-test:
+    build:
+    docker:
+      - image: cimg/node:16.13.2
+    
+    steps: 
+      - checkout
+
+      - run: 
+          name: "update-npm"
+          command: "sudo npm install -g npm@latest"
+
+      - run: 
+          name: "Install npm modules"
+          command: "npm install"
+
+      - run: 
+          name: "Run the jest tests"
+          command: "npm test"
+
+
+workflows:
+  Install-and-test:
+    jobs:
+      - install-and-test
