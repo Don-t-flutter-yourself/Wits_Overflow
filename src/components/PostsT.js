@@ -52,7 +52,7 @@ function PostsT(){
           <textarea placeholder="Question" type="question" onChange={(event) => setQuestion(event.target.value)} />
         </div>
        
-        <button type="submit" onClick={() => handleAddPost({u_caption, u_question,u_username, u_email, u_id})}>Post</button>
+        <button type="submit" onClick={() => handleAddPost({u_caption, u_question,u_username, u_email, u_id, u_created: new Date()})}>Post</button>
 
     </div>)
 }

@@ -12,6 +12,8 @@ import AllPostsT  from "./components/AllPostsT";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom" ;
 import UsersT from "./components/UsersT";
 import MyPostsT from "./components/MyPostsT";
+import AnswerT from "./components/AnswerT";
+
 
 // import Signin from "./components/signin";
 // import Signup from "./components/signup";
@@ -38,6 +40,7 @@ function App() {
         <Route path="/allusers" element={<UsersT/>}/> 
         <Route path="/myposts" element={<MyPostsT/>}/>
         <Route path="/details" element={<PostDetails/>}/>
+        <Route path="/answer" element={<AnswerT/>}/> 
       </Routes>
       </Router>
     {/* Thabelo */}
