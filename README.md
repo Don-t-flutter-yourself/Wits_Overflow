@@ -26,6 +26,11 @@ src
     |-- node_modules
     |-- public
     |-- src
+        |-- api
+        |-- authentication
+        |-- components
+        |-- context
+        |-- firebase
     |-- read me
 ```
 

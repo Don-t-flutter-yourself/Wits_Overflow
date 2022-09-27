@@ -42,6 +42,44 @@ const Signup = () => {
 
   // const nav = useNavigate();
 
+<<<<<<< HEAD
+  // function handleSubmit(datapoint){
+  //   if (emailRef && emailRef.includes(`${studentNumRef}.student.wits.ac.za`) && passwordRef && usernameRef && passwordRef === confirmPassRef){
+
+  //     registerUser(emailRef, passwordRef, usernameRef);
+  //     ref.doc(datapoint.id)
+  //     ref.add(datapoint)
+  //     alert("Registered.")
+  //     // nav('/dashboard');
+  //   } else{
+  //     alert(`Check if passwords matchs and and check if you typed ${studentNumRef}.student.wits.ac.za as email and try to register again`) ;
+  //   }
+  
+  // }
+
+  function handleSubmit(datapoint){
+   // if (emailRef && passwordRef && usernameRef && passwordRef){
+       if(firstnameRef.length < 3){
+        alert(`Name to short`) ;
+       }else if(lastnameRef.length <3){
+        alert(`Surname to short`)
+       }else if(usernameRef.length <3){
+        alert(`Username to short`)
+       }else if(studentNumRef.length < 7){
+        alert(`Student Number should be seven digits`)
+       }else if(emailRef !== `${studentNumRef}@students.wits.ac.za`){
+        alert(`Email should be STUDENTNUMBER.students.wits.ac.za`)
+       }else if(passwordRef < 6 && passwordRef !== confirmPassRef){
+        alert(`Either your password is short or it doesnt match your confirm password`) 
+       }else{
+        registerUser(emailRef, passwordRef, usernameRef);
+        ref.doc(datapoint.id)
+        ref.add(datapoint)
+        alert("Registered.")
+
+       }
+
+=======
 //   function handleSubmit(datapoint){
 //     if (emailRef && passwordRef && usernameRef && passwordRef === confirmPassRef){
 
@@ -79,6 +117,7 @@ const Signup = () => {
 
        }
 
+>>>>>>> d5e86912ad538b82a77c35b212f8d3ee7fcae873
      
       
       // nav('/dashboard');
@@ -92,13 +131,20 @@ const Signup = () => {
   <div className="form">
     <h2> Sign Up</h2>
     <form >
+<<<<<<< HEAD
+      <input placeholder="First Name - Three or more letters" type="first" onChange={(event) => setFirstName(event.target.value)} />
+=======
        <input placeholder="First Name - Three or more letters" type="first" onChange={(event) => setFirstName(event.target.value)} />
+>>>>>>> d5e86912ad538b82a77c35b212f8d3ee7fcae873
       <input placeholder="Last Name - Three or more letters" type="last" onChange={(event) => setLastName(event.target.value)} /> 
       <input placeholder="User Name - Three or more letters" type="username" onChange={(event) => setUsername(event.target.value)} />
       <input placeholder="Student Number - Seven Digits" type="stunum" onChange={(event) => setStudentNum(event.target.value)} />
       <input placeholder="Email - STUDENTNUMBER@students.wits.ac.za" type="email"  onChange={(event) => setEmail(event.target.value)}/>
       <input placeholder="Password - Six or more letters" type="password"  onChange={(event) => setPassword(event.target.value)} />
       <input placeholder="Confirm Password Six or more letters" type="password" onChange={(event) => setConfirmPassword(event.target.value)} />
+<<<<<<< HEAD
+      <button type="submit" onClick={() => handleSubmit({firstnameRef, lastnameRef, studentNumRef, emailRef, usernameRef, passwordRef, u_created: new Date(),  u_id: uuidv4()})}>Register</button>
+=======
       <button type="submit" onClick={() => handleSubmit({firstnameRef, lastnameRef, studentNumRef, emailRef, usernameRef, passwordRef, u_created: new Date(),  u_id: uuidv4()})}>Register</button>       
    
 //       <input placeholder="First Name" type="first" onChange={(event) => setFirstName(event.target.value)} />
@@ -109,6 +155,7 @@ const Signup = () => {
 //       <input placeholder="Password" type="password"  onChange={(event) => setPassword(event.target.value)} />
 //       <input placeholder="Confirm Password" type="password" onChange={(event) => setConfirmPassword(event.target.value)} />
 //       <button type="submit" onClick={() => handleSubmit({firstnameRef, lastnameRef, studentNumRef, emailRef, usernameRef, passwordRef,  u_created: new Date(),  u_id: uuidv4()})}>Register</button>
+>>>>>>> d5e86912ad538b82a77c35b212f8d3ee7fcae873
       {/* <a href="/">Already have an account?</a> */}
     </form>
   </div>
