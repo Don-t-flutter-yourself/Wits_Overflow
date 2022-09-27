@@ -2,16 +2,12 @@ import React from "react";
 
 import { useLocation } from "react-router-dom";
 
-const PostDetails = () => {
+const PostDetails = (props) => {
 
     const loc = useLocation() ;
     return ( 
         <div className="details">
-<<<<<<< HEAD
               <h2>Post Creator :  {loc.state.my_username} </h2>
-=======
-            <h2>Post Creator :  {loc.state.my_username} </h2>
->>>>>>> d5e86912ad538b82a77c35b212f8d3ee7fcae873
             <h2>Email : {loc.state.my_email} </h2>
             <h4>Date The Post Was Created : {new Date(loc.state.my_time.seconds* 1000).toLocaleDateString()}</h4>
             <h4>Time The Post Was Created : {new Date(loc.state.my_time.seconds*1000).toLocaleTimeString()}</h4>
