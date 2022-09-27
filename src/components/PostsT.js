@@ -17,6 +17,7 @@ const auth = getAuth(app) ;
 function PostsT(){
     const [u_caption, setCaption] = useState('') ;
     const [u_question, setQuestion] = useState('') ;
+    const [u_tags, setTags] = useState('') ;
     const [u_email, setEmail] = useState('') ;
     const [u_username, setUsername] = useState('') ;
     const [u_id, setId] = useState('') ;
@@ -51,8 +52,11 @@ function PostsT(){
         <div>
           <textarea placeholder="Question" type="question" onChange={(event) => setQuestion(event.target.value)} />
         </div>
+        <div>
+          <textarea placeholder="Tags" type="tags" onChange={(event) => setTags(event.target.value)} />
+        </div>
        
-        <button type="submit" onClick={() => handleAddPost({u_caption, u_question,u_username, u_email, u_id, u_created: new Date()})}>Post</button>
+        <button type="submit" onClick={() => handleAddPost({u_tags, u_caption, u_question,u_username, u_email, u_id, u_created: new Date()})}>Post</button>
 
     </div>)
 }

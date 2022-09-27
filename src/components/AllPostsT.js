@@ -33,7 +33,8 @@ function AllPostsT() {
                 my_email: mystate.u_email,
                 my_username: mystate.u_username,
                 my_uid: mystate.u_id,
-                my_time: mystate.u_created
+                my_time: mystate.u_created,
+         
             }
         })
    
@@ -47,7 +48,8 @@ function AllPostsT() {
                 my_email: mystate2.u_email,
                 my_username: mystate2.u_username,
                 my_uid: mystate2.u_id,
-                my_time: mystate2.u_created
+                my_time: mystate2.u_created,
+
             }
         } )
     }
@@ -65,7 +67,8 @@ function AllPostsT() {
                     <h5>Caption :  {post.u_caption}</h5>
                     <h5>Question - </h5>
                     <p> {post.u_question}</p>
-                    <button type="details" variant="contained" color="primary" onClick={() => onPost({u_id: post.u_id, u_question: post.u_question, u_caption: post.u_caption, u_email: post.u_email, u_username: post.u_username, u_created: post.u_created }) }>
+                    <h5>Topic : {post.u_tags}</h5>
+                    <button type="details" variant="contained" color="primary" onClick={() => onPost({u_id: post.u_id, u_tags: post.u_tags, u_question: post.u_question, u_caption: post.u_caption, u_email: post.u_email, u_username: post.u_username, u_created: post.u_created }) }>
                         View in detail
                     </button>
                     <button type="details" variant="contained" color="primary" onClick={() => onAnswer({u_id: post.u_id, u_question: post.u_question, u_caption: post.u_caption, u_email: post.u_email, u_username: post.u_username, u_created: post.u_created })} >
