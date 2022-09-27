@@ -13,6 +13,42 @@ The project is a website built using react on VS-Code simple installation and ru
 
 [![codecov](https://codecov.io/gh/GunPointCoders/harvest/branch/master/graph/badge.svg?token=1AYMUTWEBR)](https://codecov.io/github/Don-t-flutter-yourself/Wits_Overflow)
 
+
+
+
+## Project Structure
+
+```
+src
+    |-- circleci
+    |-- assets
+    |-- coverage
+    |-- node_modules
+    |-- public
+    |-- src
+        |-- api
+        |-- authentication
+        |-- components
+        |-- context
+        |-- firebase
+    |-- read me
+```
+
+## Testing
+
+Unit test cases are written using
+
+- React Testing Library
+- Jest
+
+## Action
+
+Adding Github action to introduce CI and CD pipeline.
+
+
+
+
+
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
