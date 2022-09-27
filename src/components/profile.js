@@ -34,6 +34,8 @@ const Profile = () => {
  /////////Thabelo:
 
     const nav = useNavigate();
+    const [selectedImage, setSelectedImage] = useState(null);
+
     const handleBack = () => {
         nav(-1);
     }
@@ -42,7 +44,17 @@ const Profile = () => {
         <div className="profile">
             <div className="upper-container">
                 <div className="image-container">
-                    <img src="https://blogs.sun.ac.za/cib/files/2020/03/wits-logo.jpg" alt="" height="100px" width="100px" />
+                {!selectedImage && <img src="https://th.bing.com/th/id/R.77f5794e2eb49f7989b8f85e92cfa4e0?rik=FPingw5xw%2fAHXA&pid=ImgRaw&r=0" alt="" height="100px" width="100px" /> }
+                    {!selectedImage &&
+                    <input
+                        type="file"
+                        name="myImage"
+                        onChange={(event) => {
+                        console.log(event.target.files[0]);
+                        setSelectedImage(event.target.files[0]);
+                        }}
+                    />}
+                    {selectedImage && <img src={URL.createObjectURL(selectedImage)} alt="not found" height="100px" width="100px"/>}
                 </div>
             </div>
             <div className="lower-container">
@@ -59,3 +71,4 @@ const Profile = () => {
 }
  
 export default Profile;
+
