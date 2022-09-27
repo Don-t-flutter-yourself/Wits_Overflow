@@ -48,17 +48,12 @@ function Navbar() {
         </li>
          <li className="nav__item">
           <a href="/myposts" className="nav__link">
-            My Posts
-          </a>
-        </li>
-        <li className="nav__item">
-          <a href="/allusers" className="nav__link">
-            Users
+            Answers-To-My-Posts
           </a>
         </li>
         {/* <li className="nav__item">
-          <a href="/myans" className="nav__link">
-            Ans
+          <a href="/allusers" className="nav__link">
+            Users
           </a>
         </li> */}
         <li className="nav__item">

@@ -7,7 +7,7 @@ const PostDetails = (props) => {
     const loc = useLocation() ;
     return ( 
         <div className="details">
-            <h2>Post Creator :  {loc.state.my_username} </h2>
+              <h2>Post Creator :  {loc.state.my_username} </h2>
             <h2>Email : {loc.state.my_email} </h2>
             <h4>Date The Post Was Created : {new Date(loc.state.my_time.seconds* 1000).toLocaleDateString()}</h4>
             <h4>Time The Post Was Created : {new Date(loc.state.my_time.seconds*1000).toLocaleTimeString()}</h4>
