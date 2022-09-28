@@ -4,7 +4,7 @@
 import React, {Component} from 'react' ;
 import { v4  as uuidv4 } from 'uuid' ;
 import firebase from '../firebase/index' ;
-
+import '../styles/Posts.css';
 import Signup from './signup';
 
 
@@ -17,7 +17,6 @@ const auth = getAuth(app) ;
 function PostsT(){
     const [u_caption, setCaption] = useState('') ;
     const [u_question, setQuestion] = useState('') ;
-    const [u_tags, setTags] = useState('') ;
     const [u_email, setEmail] = useState('') ;
     const [u_username, setUsername] = useState('') ;
     const [u_id, setId] = useState('') ;
@@ -45,18 +44,18 @@ function PostsT(){
 
   
     return(
-    <div>
+    <div className='createquestionPage'>
+        <h1>Post Question</h1>
         <div>
-          <textarea placeholder="Caption" type="caption"  onChange={(event) => setCaption(event.target.value)} />
+            <h3 className='heading'>Caption</h3>
+          <textarea className='captionbox' placeholder="Caption" type="caption"  onChange={(event) => setCaption(event.target.value)} />
         </div>
         <div>
-          <textarea placeholder="Question" type="question" onChange={(event) => setQuestion(event.target.value)} />
-        </div>
-        <div>
-          <textarea placeholder="Tags" type="tags" onChange={(event) => setTags(event.target.value)} />
+            <h3 className='heading'>Question</h3>
+          <textarea className='questionbox' placeholder="Question" type="question" onChange={(event) => setQuestion(event.target.value)} />
         </div>
        
-        <button type="submit" onClick={() => handleAddPost({u_tags, u_caption, u_question,u_username, u_email, u_id, u_created: new Date()})}>Post</button>
+        <button className='postbtn' type="submit" onClick={() => handleAddPost({u_caption, u_question,u_username, u_email, u_id, u_created: new Date()})}>Post</button>
 
     </div>)
 }
