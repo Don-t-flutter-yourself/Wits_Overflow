@@ -22,7 +22,7 @@ const Signin = () => {
           <input placeholder="Email" type="email" required ref={emailRef} />
           <input placeholder="Password" type="password" required ref={passwordRef} />
           <button type="submit">Sign In</button>
-          <a href="/reset">Forgot Password ?</a>
+          <a href="/reset" style={{marginLeft:"32%"}}>Forgot Password ?</a>
         </form>
       </div>
     </div>

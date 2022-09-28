@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import firebase from '../firebase/index';
+import Navbar from './navbar';
 
 import { app } from '../firebase/index';
 
@@ -25,7 +26,10 @@ const PostDetails = (props) => {
     const [u_email, setEmail] = useState('');
     const [u_username, setUsername] = useState('');
     const [u_id, setId] = useState("");
+    const [u_date, setDate] = useState("");
     const [own_id, setOwnId] = useState('');
+
+    const [u_answeredby, setName] = useState('');
 
     const [pulled_answers, setPulledAnswers] = useState([])
 
@@ -33,12 +37,17 @@ const PostDetails = (props) => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 setOwnId(user.uid);
+                ////
+                setName(user.displayName);
+             
+                /////
                 setCaption(loc.state.my_caption);
                 setQuestion(loc.state.my_question);
                 setEmail(loc.state.my_email);
                 setUsername(loc.state.my_username);
                 setId(loc.state.my_uid);
                 setCreated(loc.state.my_time);
+           
                 Pulling(loc.state.my_uid)
                 setUser(user)
             }
@@ -72,13 +81,14 @@ const PostDetails = (props) => {
     const loc = useLocation();
     return (
         <React.Fragment>
+            {/* <Navbar/> */}
             <section className="details">
                 <div className="userdetails">
                     <h2 className="postTitle" style={{ fontFamily: 'Poppins' }}>Post Details</h2><br />
                     <h5>Post Creator :  {loc.state.my_username} </h5>
                     <h5>Email : {loc.state.my_email} </h5>
-                    {/* <h5>Date The Post Was Created : {new Date(loc.state.my_time.seconds * 1000).toLocaleDateString()}</h5>
-                    <h5>Time The Post Was Created : {new Date(loc.state.my_time.seconds * 1000).toLocaleTimeString()}</h5> */}
+                    <h5>Date The Post Was Created : {new Date(loc.state.my_time.seconds * 1000).toLocaleDateString()}</h5>
+                    <h5>Time The Post Was Created : {new Date(loc.state.my_time.seconds * 1000).toLocaleTimeString()}</h5>
 
                 </div>
                 <div className="postdetails">
@@ -88,18 +98,20 @@ const PostDetails = (props) => {
                     <h2 className="answerTitle">Answers</h2>
                     <div>
                         {pulled_answers.map((ans) => (
-                            <>
+                           // setDate(ans.u_date.toString()) ;
+                            <div>
+                             
                                 <p className="answercontainer">
                                     {ans.u_answer}
                                 </p>
 
                                 <div className="answerdetails">
-                                    <div className="userA">Answered by: {_user.displayName} </div>
-                                    {/* <div className="Adate">Date: {new Date(ans.u_date.seconds * 1000).toLocaleDateString()}</div>
-                                    <div className="Adate">Time: {new Date(ans.u_date.seconds * 1000).toLocaleTimeString()}</div> */}
+                                    <div className="userA">Answered by: {ans.u_answeredby} </div>
+                                    <div className="Adate">Date: {new Date(ans.u_date.seconds * 1000).toLocaleDateString()}</div>
+                                    <div className="Adate">Time: {new Date(ans.u_date.seconds * 1000).toLocaleTimeString()}</div>
                                 </div>
                                 <hr className="linedivider" />
-                            </>
+                            </div>
                         ))}
                     </div>
 
@@ -107,8 +119,9 @@ const PostDetails = (props) => {
                         <h3>Your Answer</h3>
                         <textarea className="answerbox" value={u_answer} type="answer" onChange={(event) => {
                             setAnswer(event.target.value);
+
                         }} />
-                        <button className="answerbtn" type="submit" onClick={() => myAnswer({ u_id, doc_id, u_username, u_email, u_caption, u_question, u_answer, u_correct: "Not Yet Marked", u_date : new Date() })} >Answer</button>
+                        <button className="answerbtn" type="submit" onClick={() => myAnswer({ u_id, doc_id, u_username, u_email, u_caption, u_question, u_answer, u_correct: "Not Yet Marked", u_date : new Date(), u_answeredby })} >Answer</button>
                     </div>
                 </div>
             </section>
