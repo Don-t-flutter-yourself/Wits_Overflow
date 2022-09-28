@@ -1,0 +1,23 @@
+.postsPage{
+    margin: 20px;
+}
+
+.sideBlock{
+    width: 200px;
+    background-color: lightblue;
+}
+
+.postsTitle{
+    margin-left: 20px;
+}
+
+.questionContainer{
+    margin: 10px;
+    height: fit-content;
+    padding: 15px;
+    border-radius: 20px;
+}
+
+.linedivide{
+    margin-top: 20px;
+}

@@ -3,6 +3,7 @@
 import { useUserContext } from "../context/userContext";
 import React, { useState } from "react";
 import "../components/navbar.css";
+import LOGO from '../images/logo.png';
 //import Signin from "./signin";
 //import Signup from "./signup";
 
@@ -22,6 +23,7 @@ function Navbar() {
   };
   return (
     <nav className="nav">
+      <img className="logo" src={LOGO}/>
       <a href="#" className="nav__brand">
         Wits Overflow
       </a>
@@ -51,11 +53,11 @@ function Navbar() {
             Answers-To-My-Posts
           </a>
         </li>
-         <li className="nav__item">
-          <a href="/allanswers" className="nav__link">
-           Answers-To-Posts
+        {/* <li className="nav__item">
+          <a href="/allusers" className="nav__link">
+            Users
           </a>
-        </li> 
+        </li> */}
         <li className="nav__item">
           <a href="/" className="nav__link">
           <div onClick={logoutUser}>Log out</div>

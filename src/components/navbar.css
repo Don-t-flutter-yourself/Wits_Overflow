@@ -35,8 +35,17 @@ a {
   height: 8vh;
   background: rgb(0, 33, 65);
 }
+
+.logo{
+  width: 40px;
+  border-style: none;
+  /* margin-right: -200px; */
+
+}
+
 .nav__brand {
   text-transform: uppercase;
+  margin-right: 380px;
 }
 
 .nav__menu {
