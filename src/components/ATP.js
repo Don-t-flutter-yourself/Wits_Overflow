@@ -25,7 +25,7 @@ function ATP(){
              
              {answers.map((answer) => (
                  <div key= {answer.doc_id}> 
-                 {/* <Container maxWidth="lg" style={{backgroundColor:"whitesmoke"}}> */}   
+                 {/* <Container maxWidth="lg" style={{backgroundColor:"whitesmoke"}}>    */}
                      <h5>Question - </h5>
                      <p> {answer.u_question}</p>
                      <h5>Answer - {answer.u_answer}</h5>

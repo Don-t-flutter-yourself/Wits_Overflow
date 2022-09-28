@@ -53,6 +53,8 @@ body {
     flex-direction: column;
     width: 400px;
     padding: 22px;
+    margin-left: 35%;
+    margin-top: 10%;
   }
   
   .container > p {
