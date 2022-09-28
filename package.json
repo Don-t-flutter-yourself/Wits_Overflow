@@ -29,7 +29,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --passWithNoTests",
+    "test": "jest src",
+    "test:watch": "npm run test -- --watch",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -54,8 +55,12 @@
     "@babel/core": "^7.19.0",
     "@babel/preset-env": "^7.19.0",
     "@testing-library/react": "^13.4.0",
+    "babel-jest": "^29.0.3",
     "babel-loader": "^8.2.5",
+    "jest": "^27.5.1",
+    "jest-environment-jsdom": "^29.0.3",
     "source-map-loader": "^4.0.0",
+    "svelte-jester": "^2.3.2",
     "webpack": "^5.74.0"
   }
 }
