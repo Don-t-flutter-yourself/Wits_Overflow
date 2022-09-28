@@ -17,7 +17,7 @@ const Signin = () => {
   return (
     <div className="page">
       <div className="signin-form">
-        <h2> Sign In </h2>
+        <h2 style={{marginLeft:"40%"}}> Sign In </h2>
         <form onSubmit={onSubmit}>
           <input placeholder="Email" type="email" required ref={emailRef} />
           <input placeholder="Password" type="password" required ref={passwordRef} />
