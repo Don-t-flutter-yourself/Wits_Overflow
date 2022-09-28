@@ -18,7 +18,7 @@ const PostDetails = (props) => {
     const ref = firebase.firestore().collection('UAnswers').doc(doc_id);
 
     const [_user, setUser] = useState();
-
+    const [u_created, setCreated] = useState();
     const [u_answer, setAnswer] = useState();
     const [u_caption, setCaption] = useState('');
     const [u_question, setQuestion] = useState('');
@@ -38,7 +38,7 @@ const PostDetails = (props) => {
                 setEmail(loc.state.my_email);
                 setUsername(loc.state.my_username);
                 setId(loc.state.my_uid);
-
+                setCreated(loc.state.my_time);
                 Pulling(loc.state.my_uid)
                 setUser(user)
             }
@@ -77,8 +77,8 @@ const PostDetails = (props) => {
                     <h2 className="postTitle" style={{ fontFamily: 'Poppins' }}>Post Details</h2><br />
                     <h5>Post Creator :  {loc.state.my_username} </h5>
                     <h5>Email : {loc.state.my_email} </h5>
-                    <h5>Date The Post Was Created : {new Date(loc.state.my_time.seconds * 1000).toLocaleDateString()}</h5>
-                    <h5>Time The Post Was Created : {new Date(loc.state.my_time.seconds * 1000).toLocaleTimeString()}</h5>
+                    {/* <h5>Date The Post Was Created : {new Date(loc.state.my_time.seconds * 1000).toLocaleDateString()}</h5>
+                    <h5>Time The Post Was Created : {new Date(loc.state.my_time.seconds * 1000).toLocaleTimeString()}</h5> */}
 
                 </div>
                 <div className="postdetails">
@@ -95,8 +95,8 @@ const PostDetails = (props) => {
 
                                 <div className="answerdetails">
                                     <div className="userA">Answered by: {_user.displayName} </div>
-                                    <div className="Adate">Date: {new Date(ans.u_date.seconds * 1000).toLocaleDateString()}</div>
-                                    <div className="Adate">Time: {new Date(ans.u_date.seconds * 1000).toLocaleTimeString()}</div>
+                                    {/* <div className="Adate">Date: {new Date(ans.u_date.seconds * 1000).toLocaleDateString()}</div>
+                                    <div className="Adate">Time: {new Date(ans.u_date.seconds * 1000).toLocaleTimeString()}</div> */}
                                 </div>
                                 <hr className="linedivider" />
                             </>
