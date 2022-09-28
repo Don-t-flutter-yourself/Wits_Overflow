@@ -5,12 +5,7 @@
     border-radius: 10px;
     box-shadow: 0px 1px 10px 1px black;
     overflow: hidden;
-<<<<<<< HEAD
-    margin-left: 40%;
-    margin-top: 10%;
-=======
     justify-content: center;
->>>>>>> 56243a7 (display answers)
 }
 .upper-container{
     height: 100px;
