@@ -67,7 +67,7 @@ function AllPostsT() {
                             <h3>Caption :  {post.u_caption}</h3>
                             <h4>Question - </h4>
                             <p> {post.u_question}</p>
-                            <button type="details" variant="contained" color="primary" onClick={() => onPost({ u_id: post.u_id, u_question: post.u_question, u_caption: post.u_caption, u_email: post.u_email, u_username: post.u_username, u_created: post.u_created })}>
+                            <button className='allpostsbtn' type="details" variant="contained" color="primary" onClick={() => onPost({ u_id: post.u_id, u_question: post.u_question, u_caption: post.u_caption, u_email: post.u_email, u_username: post.u_username, u_created: post.u_created })}>
                                 View in detail
                             </button>
                             <hr className='linedivider'/>

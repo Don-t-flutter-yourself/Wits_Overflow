@@ -22,7 +22,7 @@
     display: flex;
 }
 
-.userA, .Adate{
+.userA, .Adate, .ATime{
     height: 20px;
     width: 300px;
     text-align: left;

@@ -3,12 +3,17 @@
 }
 
 .sideBlock{
-    width: 200px;
+    width: 250px;
     background-color: lightblue;
 }
 
 .postsTitle{
     margin-left: 20px;
+    font-family: Poppins;
+}
+
+.allpostsbtn{
+    width: 400px;
 }
 
 .questionContainer{

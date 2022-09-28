@@ -45,7 +45,7 @@ function PostsT(){
   
     return(
     <div className='createquestionPage'>
-        <h1>Post Question</h1>
+        <h1 className='postQTitle'>Post Question</h1>
         <div>
             <h3 className='heading'>Caption</h3>
           <textarea className='captionbox' placeholder="Caption" type="caption"  onChange={(event) => setCaption(event.target.value)} />

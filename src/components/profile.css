@@ -1,14 +1,20 @@
 .profile{
-    width: 300px;
-    height: 400px;
+    width: 450px;
+    height: 500px;
     background: white;
     border-radius: 10px;
     box-shadow: 0px 1px 10px 1px black;
     overflow: hidden;
     justify-content: center;
-    margin-left: 40%;
-    margin-top: 10%;
+    margin: 100px 500px 0px 500px;
 }
+
+.profileTitle{
+    padding: 30px 30px 30px 180px;
+    color: white;
+    font-family: Poppins;
+}
+
 .upper-container{
     height: 100px;
     background: linear-gradient(to left, blue, olive);
@@ -45,12 +51,15 @@ img{
     font-weight: 700;
     font-size: 1.2rem;
 }
-.button{
+.profilebtn{
+    width: 250px;
+    height: 50px;
     margin: 3rem;
     font: bold;
-    border: 2px solid blue;
+    border: 2px ;
     padding: 0.6rem;
     border-radius: 6px;
+    background-color: rgb(0, 33, 65);
 }
 button:hover{
     /* background-image: linear-gradient(to left, blue, olive); */
