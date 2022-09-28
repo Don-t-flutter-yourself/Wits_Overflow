@@ -1,5 +1,5 @@
 ///////////Thabelo:
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import React, {Component} from 'react' ;
 import { v4  as uuidv4 } from 'uuid' ;
@@ -18,9 +18,9 @@ const auth = getAuth(app) ;
 //const ref = firebase.firestore().collection('Answers').doc(doc_id) ;
 
 const AnswerT = (props) => {
-const doc_id = uuidv4() ;
+    const doc_id = uuidv4() ;
 
-const ref = firebase.firestore().collection('UAnswers').doc(doc_id) ;
+    const ref = firebase.firestore().collection('UAnswers').doc(doc_id) ;
     const loc = useLocation() ;
     const [u_answer, setAnswer] = useState() ;
     const [u_caption, setCaption] = useState('') ;
@@ -42,14 +42,14 @@ const ref = firebase.firestore().collection('UAnswers').doc(doc_id) ;
     }, [])
 
 
-  
+    const nav = useNavigate();
     function myAnswer(datapoint){
-     
         if(own_id === u_id){
             alert("Can't answer your own question ") ;
          }else{
             ref.set(datapoint) ;
             alert("Posted") ;
+            nav('/allanswers');
          }
   
     }
