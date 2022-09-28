@@ -11,9 +11,7 @@ The project is a website built using react on VS-Code simple installation and ru
 [![CircleCI](https://circleci.com/gh/Don-t-flutter-yourself/Wits_Overflow.svg?style=svg&circle-token=<YOUR_STATUS_API_TOKEN>)](https://app.circleci.com/pipelines/github/Don-t-flutter-yourself/Wits_Overflow/40/workflows/fe7c7a89-829c-435e-bd91-a22828c77fe1/jobs/40)
 
 
-[![codecov.io](https://codecov.io/github/codecov/codecov-node/coverage.svg?branch=master)](https://codecov.io/github/codecov/codecov-node?branch=master)
-
-[![codecov](https://codecov.io/gh/GunPointCoders/harvest/branch/master/graph/badge.svg?token=1AYMUTWEBR)](https://codecov.io/github/Don-t-flutter-yourself/Wits_Overflow)
+[![codecov.io](https://codecov.io/github/codecov/codecov-node/coverage.svg?branch=master)](https://codecov.io/github/Don-t-flutter-yourself/Wits_Overflow)
 
 
 
