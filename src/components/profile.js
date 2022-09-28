@@ -43,7 +43,8 @@ const Profile = () => {
     return ( 
         <div className="profile">
             <div className="upper-container">
-                <div className="image-container">
+                <h1 className='profileTitle'>Profile</h1>
+                {/* <div className="image-container">
                 {!selectedImage && <img src="https://th.bing.com/th/id/R.77f5794e2eb49f7989b8f85e92cfa4e0?rik=FPingw5xw%2fAHXA&pid=ImgRaw&r=0" alt="" height="100px" width="100px" /> }
                     {!selectedImage &&
                     <input
@@ -55,16 +56,19 @@ const Profile = () => {
                         }}
                     />}
                     {selectedImage && <img src={URL.createObjectURL(selectedImage)} alt="not found" height="100px" width="100px"/>}
-                </div>
+                </div> */}
             </div>
             <div className="lower-container">
                 {/* <h3> { username } : { stuNo }</h3>
                 <h4> { email } </h4>
                 <h5> { } </h5> */}
                 <h3> Username: {u_username}  </h3>
-                <h4> Email Address: {u_email} </h4>
-                <h4> About: {u_id} </h4>
-                <button onClick={handleBack}> back </button>
+                <h3> Firstname: </h3>
+                <h3> Lastname: </h3>
+                <h3> Student Number: </h3>
+                <h3> Email Address: {u_email} </h3>
+                <h3> Date Created: </h3>
+                <button className='profilebtn' onClick={handleBack}> back </button>
             </div>
         </div>
     );

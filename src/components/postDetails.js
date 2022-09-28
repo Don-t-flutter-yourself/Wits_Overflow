@@ -46,8 +46,7 @@ const PostDetails = (props) => {
                 setEmail(loc.state.my_email);
                 setUsername(loc.state.my_username);
                 setId(loc.state.my_uid);
-                setCreated(loc.state.my_time);
-           
+                setCreated(loc.state.my_time)
                 Pulling(loc.state.my_uid)
                 setUser(user)
             }
