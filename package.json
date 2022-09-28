@@ -29,7 +29,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest src",
+    "test": " react-scripts test --passWithNoTests ",
     "test:watch": "npm run test -- --watch",
     "eject": "react-scripts eject"
   },
