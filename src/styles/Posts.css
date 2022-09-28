@@ -1,0 +1,21 @@
+.createquestionPage{
+    margin: 30px 30px 30px 30px;
+}
+
+.heading{
+    margin: 20px 0px 20px 0px;
+}
+
+.captionbox{
+    width: 650px;
+    height: 60px;
+}
+
+.questionbox{
+    width: 650px;
+    height: 200px;
+}
+
+.postbtn{
+    width: 650px;
+}

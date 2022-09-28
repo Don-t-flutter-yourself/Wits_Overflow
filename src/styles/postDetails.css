@@ -1,0 +1,53 @@
+.details{
+    display: flex;
+}
+
+.userdetails{
+    height: 100vh;
+    width: 250px;
+    padding: 15px;
+    background-color: lightblue;
+}
+
+.postdetails{
+    overflow-y: auto;
+    display: grid;
+    height: 100vh;
+    width: 80%;
+    padding: 30px 50px 150px 50px;
+}
+
+.answerdetails{
+    margin: 10px 20px 10px 0px;
+    display: flex;
+}
+
+.userA, .Adate{
+    height: 20px;
+    width: 300px;
+    text-align: left;
+}
+
+.linedivider{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: darkblue;
+}
+
+.yourAnswerContainer{
+    display: grid;
+}
+
+.answerTitle{
+    margin: 10px 0px 10px 0px;
+}
+
+.answerbox{
+    height: 400px;
+    width: 500px;
+    margin-top: 5px;
+}
+
+.answerbtn{
+    width: 300px;
+}
