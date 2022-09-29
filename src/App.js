@@ -6,7 +6,7 @@ import PostDetails from "./components/postDetails";
 import { useUserContext } from "./context/userContext";
 import "./index.css";
 
-///////Thabelo: These are the imports necessary for changing pages using urls/routing. Also going to be used to link to the Navigation Bar.
+
 import PostsT from "./components/PostsT";
 import AllPostsT  from "./components/AllPostsT";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom" ;
@@ -18,7 +18,7 @@ import ATP from "./components/ATP";
 
 // import Signin from "./components/signin";
 // import Signup from "./components/signup";
-///////Thabelo:
+
 
 function App() {
   const { user, loading, error } = useUserContext();
@@ -28,7 +28,7 @@ function App() {
       {error && <p className="error">{error}</p>}
       {loading ? <h2>Loading...</h2> : <> {user ? <Dashboard /> : <Auth />} </>}
        
-       {/* Thabelo: This is the routing process */}
+     
       <Router>
       <Routes>
         {/* <Route path="/" element={<Signin/>}/>
@@ -45,7 +45,7 @@ function App() {
         <Route path="/allanswers" element={<ATP/>}/> 
       </Routes>
       </Router>
-    {/* Thabelo */}
+ 
        
       
     </div>
