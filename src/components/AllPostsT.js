@@ -23,7 +23,6 @@ function AllPostsT() {
 
     useEffect(() => { AllPosts() }, []);
 
-    ///////////Thabelo:
     function onPost(mystate) {
         nav('/details', {
             state: {
@@ -51,7 +50,6 @@ function AllPostsT() {
         })
     }
 
-    //////////////Thabelo:
 
     return (
         <React.Fragment>
@@ -86,4 +84,3 @@ function AllPostsT() {
 export default AllPostsT;
 
 
-///////Thabelo:

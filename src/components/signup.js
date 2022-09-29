@@ -9,8 +9,7 @@ const Signup = () => {
 
   const { registerUser } = useUserContext();
 
-  
-  ///////Thabelo and Bongiwe:
+
   const [firstnameRef, setFirstName] = useState('') ;
   const [lastnameRef, setLastName] = useState('') ;
   const [studentNumRef, setStudentNum] = useState('') ;
@@ -44,9 +43,7 @@ const Signup = () => {
 
        }
   }
-///////Thabelo and Bongiwe
-  
-  /////////////By Thabelo and Bongiwe
+
  return (
   <div className="form">
     <h2> Sign Up</h2>

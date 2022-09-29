@@ -1,4 +1,3 @@
-////////Thabelo:
 import React, { useState, useEffect } from 'react'
 import firebase from '../firebase/index' 
 //import {Container} from '@material-ui/core'
@@ -43,4 +42,3 @@ function UsersT(){
 export default UsersT ;
 
 
-////////Thabelo:

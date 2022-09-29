@@ -1,6 +1,3 @@
-
-/////Thabelo : Had to change class components to function component so I could make use of Hooks
-
 import React, {Component} from 'react' ;
 import { v4  as uuidv4 } from 'uuid' ;
 import firebase from '../firebase/index' ;
