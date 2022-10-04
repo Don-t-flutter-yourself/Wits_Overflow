@@ -35,7 +35,7 @@ function App() {
         <Route path="/signup" element={<Signup/>}/> */}
         <Route path="/createposts" element={<PostsT/>}/>
         <Route path="/posts" element={<AllPostsT/>}/>
-        <Route path="/dashboard" element={<Dashboard/>}/>
+        {/* if you render the path of the dashboard it appears twice*/}
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/reset" element={<ResetPassword/>}/>
         <Route path="/allusers" element={<UsersT/>}/> 

@@ -67,7 +67,7 @@ function MyPostsT() {
                         <h5>Marked as: <p> {mypost.u_correct}</p></h5>
                         <div>
                             <button classname='correctbtn' onClick={() => uCorrect({ doc_id: mypost.doc_id, u_id: mypost.u_id, u_username: mypost.u_username, u_caption: mypost.u_caption, u_question: mypost.u_question, u_answer: mypost.u_answer, u_correct: "Correct" })}>Correct</button>
-                            <button classname='incorrectbtn' onClick={() => uNotCorrect({ doc_id: mypost.doc_id, u_id: mypost.u_id, u_username: mypost.u_username, u_caption: mypost.u_caption, u_question: mypost.u_question, u_answer: mypost.u_answer, u_correct: "Not Correct" })}>Inorrect</button>
+                            <button classname='incorrectbtn' onClick={() => uNotCorrect({ doc_id: mypost.doc_id, u_id: mypost.u_id, u_username: mypost.u_username, u_caption: mypost.u_caption, u_question: mypost.u_question, u_answer: mypost.u_answer, u_correct: "Not Correct" })}>Incorrect</button>
 
                         </div>
                         <hr/>

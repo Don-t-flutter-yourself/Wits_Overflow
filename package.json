@@ -2,7 +2,7 @@
   "name": "my-app",
   "jest": {
     "testMatch": [
-      "<rootDir>/src/**/*.test.{js,jsx,ts,tsx}",
+      "<rootDir>/src/**/*.coverage.{js,jsx,ts,tsx}",
       "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,ts,tsx}"
     ]
   },
@@ -14,7 +14,6 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/react-router-dom": "^5.3.3",
     "bootstrap": "^5.2.0",
-    "cypress": "^10.9.0",
     "firebase": "^9.9.3",
     "react": "^18.0.0",
     "react-bootstrap": "^2.5.0",
@@ -30,7 +29,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": " react-scripts test --passWithNoTests ",
+    "test": " react-scripts test  ",
     "test:watch": "npm run test -- --watch",
     "eject": "react-scripts eject"
   },
@@ -58,9 +57,11 @@
     "@testing-library/react": "^13.4.0",
     "babel-jest": "^29.0.3",
     "babel-loader": "^8.2.5",
+    "cypress": "^10.9.0",
     "jest": "^27.5.1",
     "jest-environment-jsdom": "^29.0.3",
     "source-map-loader": "^4.0.0",
+    "start-server-and-test": "^1.14.0",
     "svelte-jester": "^2.3.2",
     "webpack": "^5.74.0"
   }
