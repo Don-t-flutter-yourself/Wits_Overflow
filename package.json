@@ -1,9 +1,12 @@
 {
   "name": "c",
   "jest": {
+    
     "testMatch": [
       "<rootDir>/Wits_Overflow/coverage.{js,jsx,ts,tsx}",
-      "<rootDir>/Wits_Overflow/coverage?(*.)(spec|test).{js,jsx,ts,tsx}"
+      "<rootDir>/Wits_Overflow/coverage?(*.)(spec|test).{js,jsx,ts,tsx}",
+      "<rootDir>/src/setupTests.js",
+      "<rootDir>/src/App.test.js"
     ]
   },
   "version": "0.1.0",
