@@ -1,9 +1,9 @@
 {
-  "name": "my-app",
+  "name": "c",
   "jest": {
     "testMatch": [
-      "<rootDir>/src/**/*.coverage.{js,jsx,ts,tsx}",
-      "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,ts,tsx}"
+      "<rootDir>/Wits_Overflow/coverage.{js,jsx,ts,tsx}",
+      "<rootDir>/Wits_Overflow/coverage?(*.)(spec|test).{js,jsx,ts,tsx}"
     ]
   },
   "version": "0.1.0",
@@ -54,6 +54,7 @@
   "devDependencies": {
     "@babel/core": "^7.19.0",
     "@babel/preset-env": "^7.19.0",
+    "@testing-library/cypress": "^8.0.3",
     "@testing-library/react": "^13.4.0",
     "babel-jest": "^29.0.3",
     "babel-loader": "^8.2.5",
@@ -64,5 +65,17 @@
     "start-server-and-test": "^1.14.0",
     "svelte-jester": "^2.3.2",
     "webpack": "^5.74.0"
-  }
+  },
+  "description": "",
+  "main": "cypress.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Don-t-flutter-yourself/Wits_Overflow.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Don-t-flutter-yourself/Wits_Overflow/issues"
+  },
+  "homepage": "https://github.com/Don-t-flutter-yourself/Wits_Overflow#readme"
 }

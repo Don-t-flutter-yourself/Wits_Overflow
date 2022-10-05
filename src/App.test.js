@@ -1,9 +1,10 @@
 /* eslint-disable testing-library/prefer-screen-queries */
+
 import React from "react";
 import user from "@testing-library/user-event";
 
 import { render } from "../../utils/testing";
-import App from "./index";
+import App from "./Wits_Overflow/src/App.js";
 
 test("App page renders home when signed in", async () => {
   const { getByRole, getByTestId, findByRole } = render(<App />, {

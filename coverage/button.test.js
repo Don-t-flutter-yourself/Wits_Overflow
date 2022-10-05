@@ -1,27 +1,32 @@
 import React from "react";
-import { render } from "@testing-library/react";
-import user from "@testing-library/user-event";
+import $ from "react-test";
+import Button from "./Button";
 
-import Button from "./index";
+describe("Button.js", () => {
+  it("has different backgrounds depending on the props", () => {
+    const $button = $(<Button>Hello</Button>);
+    expect($button).toHaveStyle("background", "gray");
+    const $primary = $(<Button primary>Hello</Button>);
+    expect($primary).toHaveStyle("background", "blue");
+  });
 
-const onClick = jest.fn();
+  it("can be clicked", async () => {
+    const fn = jest.fn();
+    const $button = $(<Button onClick={fn}>Hello</Button>);
+    expect(fn).not.toBeCalled();
+    await $button.click();
+    expect(fn).toBeCalled();
+  });
 
-test("render button component", () => {
-  const { asFragment, getByText, getByRole, rerender } = render(
-    <Button title="Button" onClick={onClick} />
-  );
-  expect(asFragment()).toMatchSnapshot();
-  expect(getByText("Button")).toBeInTheDocument();
-
-  user.click(getByRole("button"));
-  expect(onClick).toHaveBeenCalledTimes(1);
-
-  rerender(<Button title="Button" loading={true} onClick={() => {}} />);
-  expect(getByText("Button")).toHaveClass("loading");
-  expect(getByText("Button")).toBeDisabled();
-});
-
-test("render with default props", () => {
-  const { getByRole } = render(<Button />);
-  user.click(getByRole("button"));
+  // FAILS
+  it("cannot be clicked if it's disabled", async () => {
+    const fn = jest.fn();
+    const $button = $(
+      <Button onClick={fn} disabled>
+        Hello
+      </Button>
+    );
+    await $button.click();
+    expect(fn).not.toBeCalled(); // ERROR!
+  });
 });
