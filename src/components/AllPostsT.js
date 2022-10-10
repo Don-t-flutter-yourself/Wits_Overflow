@@ -6,6 +6,19 @@ import '../styles/AllPosts.css';
 
 function AllPostsT() {
     const [posts, setPosts] = useState([]);
+    const [value, setVal] = useState('');
+
+    useEffect(() => {
+        if (value.length > 0){
+            let searchQuery = value.toLocaleLowerCase();
+            for (let i=0; i<posts.length; ++i){
+                let ipost = posts[i];
+                if (ipost.u_caption.toLocaleLowerCase().slice(0, searchQuery.length).indexOf(searchQuery) !== -1){
+                    console.log(ipost.u_question);
+                }
+            }
+        }
+    }, [value])
 
     const ref = firebase.firestore().collection("UserPosts");
 
@@ -56,6 +69,10 @@ function AllPostsT() {
             <section className="details">
                 <div className='sideBlock'></div>
                 <div className='postsPage'>
+                    <div className="search">
+                        <input placeholder="search post" type="text" onChange={(e) => setVal(e.target.value)} value={value}/>
+                    </div>
+
                     <h2 className='postsTitle'>ALL POSTS</h2>
 
                     {posts.map((post) => (
