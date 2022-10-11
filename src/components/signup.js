@@ -43,7 +43,7 @@ const Signup = () => {
 
        }
   }
-
+// describes how the sign up form looks like, the text fields and buttons
  return (
   <div className="formS">
     <h2 className="suh"> Sign Up</h2>
