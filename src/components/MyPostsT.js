@@ -52,6 +52,8 @@ function MyPostsT() {
         alert("Marked as incorrect");
     }
 
+    document.body.style.overflow = 'hidden';
+
     return (
         <div className='mypostPage'>
             <h2 className='myposttitle'>My Posts</h2>

@@ -97,7 +97,7 @@ function AllPostsT() {
                         <h4 style={{ marginTop:'10px', fontSize:'22px', color:'rgb(0, 33, 65)'}}>Question </h4>
                         <p style={{color:'gray'}}>📖 {'Category'}</p>
                         <p> {post.u_question}</p>
-                        <button className='allpostsbtn' type="details" variant="contained" color="primary" onClick={() => onPost({ u_id: post.u_id, u_question: post.u_question, u_caption: post.u_caption, u_email: post.u_email, u_username: post.u_username, u_created: post.u_created })}>
+                        <button className='allpostsbtn' type="details" variant="contained" color="primary" onClick={() => onPost({u_Upvote: post.u_Upvote, u_Downvote: post.u_Downvote ,u_doc_id : post.u_doc_id, u_id: post.u_id, u_question: post.u_question, u_caption: post.u_caption, u_email: post.u_email, u_username: post.u_username, u_created: post.u_created })}>
                             View in detail
                         </button>
                         <p>{post.my_time}</p>
