@@ -42,13 +42,13 @@ function PostsT(){
         alert("Question Posted.")
     }
 
-    const actions = [
-        { label: "Javascript", value: 1 },
-        { label: "React", value: 2 },
-        { label: "Props", value: 3 }
-    ];
+    // const actions = [
+    //     { label: "Javascript", value: 1 },
+    //     { label: "React", value: 2 },
+    //     { label: "Props", value: 3 }
+    // ];
 
-    const animatedComps = makeAnimated();
+    // const animatedComps = makeAnimated();
 
   
     return(
@@ -63,7 +63,7 @@ function PostsT(){
           <textarea className='questionbox' placeholder="Question" type="question" onChange={(event) => setQuestion(event.target.value)} />
         </div>
 
-        <div>
+        {/* <div>
             <h3 className='heading'>Tags</h3>
             <div className="row">
                 <div className="col-md-4"></div>
@@ -75,7 +75,7 @@ function PostsT(){
                 </div>
                 <div className="col-md-4"></div>
             </div>
-        </div>
+        </div> */}
        
         <button className='postbtn' type="submit" onClick={() => handleAddPost({u_Upvote:0, u_Downvote:0, u_doc_id, u_caption, u_question,u_username, u_email, u_id, u_created: new Date()})}>Post</button>
 
