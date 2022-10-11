@@ -1,3 +1,5 @@
+/* eslint-disable testing-library/no-unnecessary-act */
+/* eslint-disable testing-library/await-async-utils */
 /* eslint-disable testing-library/prefer-screen-queries */
 import React from "react";
 import user from "@testing-library/user-event";
@@ -5,7 +7,7 @@ import { waitFor, act } from "@testing-library/react";
 
 import { render } from "../../utils/testing";
 import Login from "./index";
-
+//tests rendering
 test("renders login page", () => {
   const { getByText, getAllByPlaceholderText } = render(<Login />, {
     route: "/login",
@@ -18,6 +20,8 @@ test("renders login page", () => {
   expect(inputElements[1]).toBeInTheDocument();
 });
 
+//tests when user tries to log in with no data input 
+
 test("on submit, with no input data login request is not called", async () => {
   const { getByRole, getByTestId } = render(<Login />, { route: "/login" });
   user.click(getByRole("button"));
@@ -28,6 +32,9 @@ test("on submit, with no input data login request is not called", async () => {
   expect(emailInput).toHaveClass("input-error");
   expect(passwordInput).toHaveClass("input-error");
 });
+
+
+//test when user has put invalid data when logging in
 
 test("on submit, with invalid input data login request is not called", async () => {
   const userData = { email: "test#mail.com", password: "password" };
@@ -43,6 +50,8 @@ test("on submit, with invalid input data login request is not called", async () 
   expect(passwordInput).toHaveClass("input-error");
 });
 
+
+//test when user has put valid data to log in
 test("on submit, with valid input data login request happens", async () => {
   const userData = { email: "test@mail.com", password: "asdASD" };
   const { getByRole, getByText, getByTestId } = render(<Login />, {

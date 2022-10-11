@@ -1,11 +1,10 @@
 import { render } from '@testing-library/react';
 //import Profile from './components/profile';
-import Signin from './signin';
+import MyDashboard from './MyDashboard';
 
 
 
-test('renders the signin page', () => {
-  render(<Signin />);
-  
+test('renders the mydash', () => {
+  render(<MyDashboard />);
   
 });

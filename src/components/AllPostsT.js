@@ -4,6 +4,11 @@ import firebase from '../firebase/index'
 import { useNavigate } from "react-router-dom";
 import '../styles/AllPosts.css';
 
+
+
+//commented out part of the code to be used in the next sprint
+
+
 function AllPostsT() {
     const [posts, setPosts] = useState([]);
     const [searchQuery, setSearch] = useState('');
@@ -33,7 +38,7 @@ function AllPostsT() {
             setPosts(items);
         });
     }
-
+//details of the post gotten by data fetching
     useEffect(() => { AllPosts() }, []);
 
     function onPost(mystate) {
@@ -52,7 +57,7 @@ function AllPostsT() {
         })
 
     }
-
+//answer details
     function onAnswer(mystate2) {
         nav('/answer', {
             state: {

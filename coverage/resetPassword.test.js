@@ -1,10 +1,11 @@
 import { render } from '@testing-library/react';
-import Profile from './profile';
+//import Profile from './components/profile';
+import ResetPassword from './resetPassword';
 
 
-
-test('renders the profile', () => {
-  render(<Profile />);
+//commented out part of the code to be used in the next sprint
+test('renders the resetpassword', () => {
+  render(<ResetPassword />);
   
   //expect(screen.getByRole("heading")).toHaveTextContent(/Doggy Directory/);
  // expect(screen.getByRole("combobox")).toHaveDisplayValue("Select a breed");

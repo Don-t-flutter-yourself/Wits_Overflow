@@ -4,12 +4,15 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import firebase from '../firebase/index';
-import Navbar from './navbar';
+//import Navbar from './navbar';
 
 import { app } from '../firebase/index';
 
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
+
+
+//commented out part of the code to be used in the next sprint
 const auth = getAuth(app)
 
 const PostDetails = (props) => {
@@ -26,7 +29,7 @@ const PostDetails = (props) => {
     const [u_email, setEmail] = useState('');
     const [u_username, setUsername] = useState('');
     const [u_id, setId] = useState("");
-    const [u_date, setDate] = useState("");
+    //const [u_date, setDate] = useState("");
     const [own_id, setOwnId] = useState('');
 
     const [u_answeredby, setName] = useState('');
@@ -82,7 +85,7 @@ const PostDetails = (props) => {
         alert("Down Voted");
 
     }
-
+//when user tries to mark their own questions
     function myAnswer(datapoint) {
         if (own_id === u_id) {
             alert("Can't answer your own question ");
@@ -96,6 +99,9 @@ const PostDetails = (props) => {
     document.body.style.overflow = 'hidden';
 
     const loc = useLocation();
+
+
+    //user function to return post details
     return (
         <React.Fragment>
             {/* <Navbar/> */}
@@ -130,7 +136,7 @@ const PostDetails = (props) => {
            <p className="answercontainer">
                {ans.u_answer}
            </p>
-
+    {/* answered by details to the posts data from backend */}
            <div className="answerdetails">
                <div className="userA"> 
                    <p className="answerlbl">Answered by: </p>

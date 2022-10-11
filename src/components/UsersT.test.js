@@ -1,11 +1,11 @@
 import { render } from '@testing-library/react';
-import AnswerT from './AnswerT';
-//import Profile from './components/profile';
+//import Profile from './profile';
+import UsersT from './UsersT';
 
 
 
-test('renders the Answer', () => {
-  render(<AnswerT />);
+test('renders the profile', () => {
+  render(<UsersT />);
   
   //expect(screen.getByRole("heading")).toHaveTextContent(/Doggy Directory/);
  // expect(screen.getByRole("combobox")).toHaveDisplayValue("Select a breed");

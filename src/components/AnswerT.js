@@ -16,6 +16,8 @@ const auth = getAuth(app) ;
 
 //const ref = firebase.firestore().collection('Answers').doc(doc_id) ;
 
+
+//states to feth data for the answer page 
 const AnswerT = (props) => {
     const doc_id = uuidv4() ;
 
@@ -40,7 +42,7 @@ const AnswerT = (props) => {
 
     }, [])
 
-
+//when user tries to answer their own questions
     const nav = useNavigate();
     function myAnswer(datapoint){
         if(own_id === u_id){
@@ -52,7 +54,7 @@ const AnswerT = (props) => {
          }
   
     }
-
+//details as to who answered questions
     return(
         <div>
              <textarea placeholder="Answer" type="answer"  onChange={(event) => {

@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for signin.js</title>
+    <title>Code coverage report for UsersT.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="index.html">All files</a> signin.js</h1>
+        <h1><a href="index.html">All files</a> UsersT.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -30,23 +30,23 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>3/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">60% </span>
+                <span class="strong">55.55% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>6/10</span>
+                <span class='fraction'>5/9</span>
             </div>
         
             
@@ -95,23 +95,44 @@
 <a name='L30'></a><a href='#L30'>30</a>
 <a name='L31'></a><a href='#L31'>31</a>
 <a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -127,38 +148,53 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useRef } from "react";
-import { useUserContext } from "../context/userContext";
-import '../styles/signin.css';
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useState, useEffect } from 'react'
+import firebase from '../firebase/index' 
+//import {Container} from '@material-ui/core'
 &nbsp;
-const Signin = () =&gt; {
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const { signInUser } = useUserContext();
+function UsersT(){
+    const [allUsers, setUsers] = useState([]) ;
+    const ref = firebase.firestore().collection("Users");
 &nbsp;
-  const onSubmit = <span class="fstat-no" title="function not covered" >(e</span>) =&gt; {
-<span class="cstat-no" title="statement not covered" >    e.preventDefault();</span>
-    const email = <span class="cstat-no" title="statement not covered" >emailRef.current.value;</span>
-    const password = <span class="cstat-no" title="statement not covered" >passwordRef.current.value;</span>
-<span class="cstat-no" title="statement not covered" >    if (email &amp;&amp; password) <span class="cstat-no" title="statement not covered" >signInUser(email, password);</span></span>
-  };
+    function AllUsers(){
+        ref.onSnapshot(<span class="fstat-no" title="function not covered" >(q</span>uerySnapshot) =&gt; { 
+            const items = <span class="cstat-no" title="statement not covered" >[] </span>;
+<span class="cstat-no" title="statement not covered" >            querySnapshot.forEach(<span class="fstat-no" title="function not covered" >(d</span>oc) =&gt; {<span class="cstat-no" title="statement not covered" >items.push(doc.data()) ;</span></span>
+            }) ;
+<span class="cstat-no" title="statement not covered" >            setUsers(items) ;</span>
+        }) ;
+    }
 &nbsp;
-  return (
-      &lt;div className="signin-form"&gt;
-        &lt;h2 className="signh2"&gt; Sign In &lt;/h2&gt;
-        &lt;form onSubmit={onSubmit}&gt;
-        &lt;label className="txt"&gt;Email&lt;/label&gt;
-          &lt;input placeholder="Email" type="email" required ref={emailRef} /&gt;
-          &lt;label className="txt"&gt;Password&lt;/label&gt;
-          &lt;input placeholder="Password" type="password" required ref={passwordRef} /&gt;
-          &lt;button className="signinbtn" type="submit"&gt;Sign In&lt;/button&gt;
-          &lt;a href="/reset" style={{marginLeft:"32%", color: "blue"}}&gt;Forgot Password ?&lt;/a&gt;
-        &lt;/form&gt;
-      &lt;/div&gt;
-  );
-};
+    useEffect(() =&gt; { AllUsers() }, []) ;
 &nbsp;
-export default Signin;
+    return(
+        &lt;div&gt;
+              &lt;h2&gt;All Students&lt;/h2&gt;
+              {allUsers.map(<span class="fstat-no" title="function not covered" >(u</span>ser) =&gt; (
+<span class="cstat-no" title="statement not covered" >                &lt;&gt;</span>
+                &lt;div key= {user.studentNumRef}&gt; 
+                {/* &lt;Container maxWidth="lg" style={{backgroundColor:"whitesmoke"}}&gt; */}
+                    &lt;h3 style={{color:"blue"}}&gt;Name :  {user.firstnameRef}&lt;/h3&gt;
+                    &lt;h3 style={{color:"blue"}}&gt; Lastname: {user.lastnameRef} &lt;/h3&gt;
+                    &lt;h3 style={{color:"blue"}}&gt;Student Number: {user.studentNumRef}&lt;/h3&gt;   
+                {/* &lt;/Container&gt; */}
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;p&gt;    ===========================================================================================================================&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;/&gt;
+            ))}
+&nbsp;
+        &lt;/div&gt;
+    )
+}
+&nbsp;
+export default UsersT ;
+&nbsp;
+&nbsp;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

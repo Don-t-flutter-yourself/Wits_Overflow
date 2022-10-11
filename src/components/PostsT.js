@@ -8,10 +8,12 @@ import Signup from './signup';
 import { useEffect, useState } from 'react';
 import {getAuth , onAuthStateChanged} from "firebase/auth" ;
 import { app } from '../firebase/index' ;
-import Select from 'react-select';
-import makeAnimated from 'react-select/animated';
+//import Select from 'react-select';
+//import makeAnimated from 'react-select/animated';
 
 const auth = getAuth(app) ;
+//set states for data fetching
+//commented out part of the code to be used in the next sprint
 
 function PostsT(){
     const [u_caption, setCaption] = useState('') ;
@@ -19,7 +21,7 @@ function PostsT(){
     const [u_email, setEmail] = useState('') ;
     const [u_username, setUsername] = useState('') ;
     const [u_id, setId] = useState('') ;
-    const [u_tag, setTag] = useState('React');
+    //const [u_tag, setTag] = useState('React');
 
     ///Left with the time and date at which the post is created
 

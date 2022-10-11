@@ -1,12 +1,9 @@
-const button = require('./resestPass');
+import { render } from '@testing-library/react';
+import ResestPass from './resestPass';
 
-;
+//tests to help with rendering of password pagea
+test('renders the profile', () => {
+  render(<ResestPass />);
+  
 
-test('renders the resetpassword', () => {
-  
-  
-  //expect(screen.getByRole("heading")).toHaveTextContent(/Doggy Directory/);
- // expect(screen.getByRole("combobox")).toHaveDisplayValue("Select a breed");
-//  expect(button("button", { name: "Submit" })).toBeEnabled();
-  //expect(screen.getByRole("img")).toBeInTheDocument();
 });

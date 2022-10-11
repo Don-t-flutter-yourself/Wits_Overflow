@@ -1,12 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 import firebase from "../firebase/index";
-import { UserContext } from "../context/userContext";
+//mport { UserContext } from "../context/userContext";
 import '../styles/myPosts.css';
 
 import { useEffect, useState } from 'react';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { app } from '../firebase/index';
-import { uuidv4 } from "@firebase/util";
+//import { uuidv4 } from "@firebase/util";
 //import {Container} from '@material-ui/core';
 
 const auth = getAuth(app);
@@ -14,6 +14,9 @@ const auth = getAuth(app);
 //const doc_id = uuidv4() ;
 
 
+//commented out part of the code to be used in the next sprint
+
+//start of functions
 function MyPostsT() {
     const [myposts, setMyPosts] = useState([]);
     const [u_id, setId] = useState('');
@@ -25,7 +28,7 @@ function MyPostsT() {
             }
         })
     }, []);
-
+//backend fetch of answers
     const ref = firebase.firestore().collection("UAnswers")
 
     function getMyPosts() {
@@ -42,6 +45,8 @@ function MyPostsT() {
         getMyPosts();
     });
 
+
+//display after answer marking
     const dif = firebase.firestore().collection("UAnswers");
     function uCorrect(datapoint) {
         dif.doc(datapoint.doc_id).update(datapoint);
@@ -54,6 +59,9 @@ function MyPostsT() {
 
     document.body.style.overflow = 'hidden';
 
+
+    
+//function for marking of answer using a correct or incorrect button
     return (
         <div className='mypostPage'>
             <h2 className='myposttitle'>My Posts</h2>

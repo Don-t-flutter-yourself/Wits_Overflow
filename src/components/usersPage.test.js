@@ -1,9 +1,8 @@
 import { render,screen } from '@testing-library/react';
-//import Profile from './components/profile';
 import UsersPage from './usersPage';
 
 
-
+//renders user page with image test
 test('renders the userpage', () => {
   render(<UsersPage />);
   expect(screen.getByRole("img")).toBeInTheDocument();

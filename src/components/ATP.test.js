@@ -1,14 +1,15 @@
-import { render } from '@testing-library/react';
+import { render} from '@testing-library/react';
+import ATP from './ATP';
 //import Profile from './components/profile';
-import ResetPassword from './resetPassword';
+//import MyPostsT from './MyPostsT';
 
 
 
-test('renders the resetpassword', () => {
-  render(<ResetPassword />);
+test('renders the mypostt', () => {
+  render(ATP);
   
   //expect(screen.getByRole("heading")).toHaveTextContent(/Doggy Directory/);
  // expect(screen.getByRole("combobox")).toHaveDisplayValue("Select a breed");
- //expect(screen.getByRole("button", { name: "Sign In" })).toBeDisabled();
+ //expect(screen.getByRole("incorrectbtn", { name: "Incorrect" })).toBeDisabled();
   //expect(screen.getByRole("img")).toBeInTheDocument();
 });

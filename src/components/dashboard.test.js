@@ -1,14 +1,9 @@
 import { render } from '@testing-library/react';
-//import Profile from './components/profile';
 import Dashboard from './dashboard';
 
 
-
+//tests the rendering of dashboard to the page
 test('renders the dashboard', () => {
   render(<Dashboard />);
   
-  //expect(screen.getByRole("heading")).toHaveTextContent(/Doggy Directory/);
- // expect(screen.getByRole("combobox")).toHaveDisplayValue("Select a breed");
- //expect(screen.getByRole("button", { name: "Sign In" })).toBeDisabled();
-  //expect(screen.getByRole("img")).toBeInTheDocument();
 });
