@@ -44,7 +44,10 @@ function AllPostsT() {
                 my_email: mystate.u_email,
                 my_username: mystate.u_username,
                 my_uid: mystate.u_id,
-                my_time: mystate.u_created
+                my_time: mystate.u_created,
+                my_u_doc_id: mystate.u_doc_id, 
+                my_UpVote: mystate.u_Upvote,
+                my_DownVote: mystate.u_Downvote
             }
         })
 
@@ -58,7 +61,10 @@ function AllPostsT() {
                 my_email: mystate2.u_email,
                 my_username: mystate2.u_username,
                 my_uid: mystate2.u_id,
-                my_time: mystate2.u_created
+                my_time: mystate2.u_created,
+                my_u_doc_id: mystate2.u_doc_id, 
+                my_UpVote: mystate2.u_Upvote,
+                my_DownVote: mystate2.u_Downvote
             }
         })
     }
@@ -82,7 +88,7 @@ function AllPostsT() {
                             <h3>Caption :  {post.u_caption}</h3>
                             <h4>Question - </h4>
                             <p> {post.u_question}</p>
-                            <button className='allpostsbtn' type="details" variant="contained" color="primary" onClick={() => onPost({ u_id: post.u_id, u_question: post.u_question, u_caption: post.u_caption, u_email: post.u_email, u_username: post.u_username, u_created: post.u_created })}>
+                            <button className='allpostsbtn' type="details" variant="contained" color="primary" onClick={() => onPost({u_Upvote: post.u_Upvote, u_Downvote: post.u_Downvote ,u_doc_id : post.u_doc_id, u_id: post.u_id, u_question: post.u_question, u_caption: post.u_caption, u_email: post.u_email, u_username: post.u_username, u_created: post.u_created })}>
                                 View in detail
                             </button>
                             <hr className='linedivider'/>

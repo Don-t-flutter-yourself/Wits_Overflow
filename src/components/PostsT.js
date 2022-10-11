@@ -34,11 +34,11 @@ function PostsT(){
 
     }, [])
 
-    const ref = firebase.firestore().collection('UserPosts');
+    const u_doc_id = uuidv4() ;
+    const ref = firebase.firestore().collection('UserPosts').doc(u_doc_id) ;
  
     function handleAddPost(datapoint){   //Where post is the entire object/datapoint
-        ref.doc(datapoint.id)
-        ref.add(datapoint)
+        ref.set(datapoint) 
         alert("Question Posted.")
     }
 
@@ -77,7 +77,7 @@ function PostsT(){
             </div>
         </div>
        
-        <button className='postbtn' type="submit" onClick={() => handleAddPost({u_caption, u_question,u_username, u_email, u_id, u_created: new Date()})}>Post</button>
+        <button className='postbtn' type="submit" onClick={() => handleAddPost({u_Upvote:0, u_Downvote:0, u_doc_id, u_caption, u_question,u_username, u_email, u_id, u_created: new Date()})}>Post</button>
 
     </div>)
 }

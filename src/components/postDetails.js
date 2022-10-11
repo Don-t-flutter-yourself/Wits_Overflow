@@ -47,7 +47,7 @@ const PostDetails = (props) => {
                 setUsername(loc.state.my_username);
                 setId(loc.state.my_uid);
                 setCreated(loc.state.my_time)
-                Pulling(loc.state.my_uid)
+                Pulling(loc.state.my_question)
                 setUser(user)
             }
         })
@@ -57,13 +57,30 @@ const PostDetails = (props) => {
     function Pulling(d_id) {
         const _ref = firebase.firestore().collection('UAnswers')
 
-        _ref.where('u_id', '==', d_id).onSnapshot((querySnapshot) => {
+        _ref.where('u_question', '==', d_id).onSnapshot((querySnapshot) => {
             const items = [];
             querySnapshot.forEach((doc) => {
                 items.push(doc.data());
             });
             setPulledAnswers(items);
         });
+    }
+
+    //////Updating the Downvote and Upvote fields when user likes or dislikes
+    const rU = firebase.firestore().collection("UserPosts");
+    const [up, setUp] = useState() ;
+    const [down, setDown] = useState() ;
+    function uUpVote(datapoint){
+        rU.doc(datapoint.u_doc_id).update(datapoint);
+        setUp(datapoint.u_Upvote) ;
+        alert("Up Voted");
+
+    }
+    function uDownVote(datapoint){
+        rU.doc(datapoint.u_doc_id).update(datapoint);
+        setDown(datapoint.u_Downvote) ;
+        alert("Down Voted");
+
     }
 
     function myAnswer(datapoint) {
@@ -88,7 +105,8 @@ const PostDetails = (props) => {
                     <h5>Email : {loc.state.my_email} </h5>
                     <h5>Date The Post Was Created : {new Date(loc.state.my_time.seconds * 1000).toLocaleDateString()}</h5>
                     <h5>Time The Post Was Created : {new Date(loc.state.my_time.seconds * 1000).toLocaleTimeString()}</h5>
-
+                    <button onClick={() => uUpVote({u_Downvote:loc.state.my_DownVote , u_Upvote:loc.state.my_UpVote+1 , u_caption:loc.state.my_caption , u_created:loc.state.my_time , u_doc_id:loc.state.my_u_doc_id , u_email:loc.state.my_email, u_id:loc.state.my_uid, u_question:loc.state.my_question, u_username:loc.state.my_username})}>Like <h5>{up}</h5></button>
+                    <button onClick={() => uDownVote({u_Downvote:loc.state.my_DownVote+1 , u_Upvote:loc.state.my_UpVote , u_caption:loc.state.my_caption , u_created:loc.state.my_time , u_doc_id:loc.state.my_u_doc_id , u_email:loc.state.my_email, u_id:loc.state.my_uid, u_question:loc.state.my_question, u_username:loc.state.my_username})}>Dislike <h5>{down}</h5></button>
                 </div>
                 <div className="postdetails">
                     <h3>Caption  : {loc.state.my_caption}  </h3>
