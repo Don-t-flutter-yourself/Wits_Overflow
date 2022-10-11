@@ -3,7 +3,9 @@
   "jest": {
     "testMatch": [
       "<rootDir>/src/**/*.coverage.{js,jsx,ts,tsx}",
-      "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,ts,tsx}"
+      "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,ts,tsx}",
+      "<rootDir>/src/sum.test.js",
+      "<rootDir>/src/App.test.js"
     ]
   },
   "version": "0.1.0",

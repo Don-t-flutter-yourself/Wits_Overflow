@@ -9,7 +9,7 @@ import "./index.css";
 
 import PostsT from "./components/PostsT";
 import AllPostsT  from "./components/AllPostsT";
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom" ;
+import {BrowserRouter , Routes, Route} from "react-router-dom" ;
 import UsersT from "./components/UsersT";
 import MyPostsT from "./components/MyPostsT";
 import AnswerT from "./components/AnswerT";
@@ -29,7 +29,7 @@ function App() {
       {loading ? <h2>Loading...</h2> : <> {user ? <Dashboard /> : <Auth />} </>}
        
      
-      <Router>
+      <BrowserRouter>
       <Routes>
         {/* <Route path="/" element={<Signin/>}/>
         <Route path="/signup" element={<Signup/>}/> */}
@@ -44,7 +44,7 @@ function App() {
         <Route path="/answer" element={<AnswerT/>}/> 
         <Route path="/allanswers" element={<ATP/>}/> 
       </Routes>
-      </Router>
+      </BrowserRouter>
  
        
       
