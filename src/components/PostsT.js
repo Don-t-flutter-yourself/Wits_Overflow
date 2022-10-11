@@ -8,6 +8,8 @@ import Signup from './signup';
 import { useEffect, useState } from 'react';
 import {getAuth , onAuthStateChanged} from "firebase/auth" ;
 import { app } from '../firebase/index' ;
+import Select from 'react-select';
+import makeAnimated from 'react-select/animated';
 
 const auth = getAuth(app) ;
 
@@ -17,6 +19,7 @@ function PostsT(){
     const [u_email, setEmail] = useState('') ;
     const [u_username, setUsername] = useState('') ;
     const [u_id, setId] = useState('') ;
+    const [u_tag, setTag] = useState('React');
 
     ///Left with the time and date at which the post is created
 
@@ -31,13 +34,21 @@ function PostsT(){
 
     }, [])
 
-    const ref = firebase.firestore().collection('UserPosts');
+    const u_doc_id = uuidv4() ;
+    const ref = firebase.firestore().collection('UserPosts').doc(u_doc_id) ;
  
     function handleAddPost(datapoint){   //Where post is the entire object/datapoint
-        ref.doc(datapoint.id)
-        ref.add(datapoint)
+        ref.set(datapoint) 
         alert("Question Posted.")
     }
+
+    // const actions = [
+    //     { label: "Javascript", value: 1 },
+    //     { label: "React", value: 2 },
+    //     { label: "Props", value: 3 }
+    // ];
+
+    // const animatedComps = makeAnimated();
 
   
     return(
@@ -51,8 +62,22 @@ function PostsT(){
             <h3 className='heading'>Question</h3>
           <textarea className='questionbox' placeholder="Question" type="question" onChange={(event) => setQuestion(event.target.value)} />
         </div>
+
+        {/* <div>
+            <h3 className='heading'>Tags</h3>
+            <div className="row">
+                <div className="col-md-4"></div>
+                <div className="col-md-4">
+                    <Select options={ actions } components={animatedComps} isMulti isSearchable 
+                    // value={u_tag} 
+                    onChange={(event) => console.log(event.length)}
+                    />
+                </div>
+                <div className="col-md-4"></div>
+            </div>
+        </div> */}
        
-        <button className='postbtn' type="submit" onClick={() => handleAddPost({u_caption, u_question,u_username, u_email, u_id, u_created: new Date()})}>Post</button>
+        <button className='postbtn' type="submit" onClick={() => handleAddPost({u_Upvote:0, u_Downvote:0, u_doc_id, u_caption, u_question,u_username, u_email, u_id, u_created: new Date()})}>Post</button>
 
     </div>)
 }

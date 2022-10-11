@@ -14,6 +14,7 @@ import UsersT from "./components/UsersT";
 import MyPostsT from "./components/MyPostsT";
 import AnswerT from "./components/AnswerT";
 import ATP from "./components/ATP";
+import MyDashboard from "./components/MyDashboard";
 
 
 // import Signin from "./components/signin";
@@ -43,6 +44,7 @@ function App() {
         <Route path="/details" element={<PostDetails/>}/>
         <Route path="/answer" element={<AnswerT/>}/> 
         <Route path="/allanswers" element={<ATP/>}/> 
+        <Route path="/mydashboard" element={<MyDashboard/>}/>
       </Routes>
       </BrowserRouter>
  

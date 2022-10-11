@@ -29,8 +29,13 @@ function Navbar() {
       </a>
       <ul className={active}>
         <li className="nav__item">
+          <a href="/mydashboard" className="nav__link">    
+           Dashboard
+          </a>
+        </li>
+        <li className="nav__item">
           <a href="/dashboard" className="nav__link">    
-            Dashboard
+           
           </a>
         </li>
         <li className="nav__item">
