@@ -9,7 +9,7 @@ const Dashboard = () => {
     const [myAnswers, setMyAnswers] = useState([]);
 
     const ref = firebase.firestore().collection("UAnswers")
-
+// function for getting answers related to your question
     function getMyAnswers() {
         ref.onSnapshot((querySnapshot) => {
             const items = [];
