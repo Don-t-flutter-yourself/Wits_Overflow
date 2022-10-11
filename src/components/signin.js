@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { useUserContext } from "../context/userContext";
 import '../styles/signin.css';
 
+//Have the sign in that takes an email, password and signs in user when it mateches what's in the database.
 const Signin = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -14,6 +15,7 @@ const Signin = () => {
     if (email && password) signInUser(email, password);
   };
 
+  // returns the sign in form with the necessary text fields and buttons.
   return (
       <div className="signin-form">
         <h2 className="signh2"> Sign In </h2>
