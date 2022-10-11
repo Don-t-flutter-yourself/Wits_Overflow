@@ -25,6 +25,9 @@ const Dashboard = () => {
   });
   return (
     <React.Fragment>
+    <div>
+     <h1>All Answers to All Questions</h1>
+    </div>
      <div>
      {myAnswers.map((myanswer) => (
                 <>
