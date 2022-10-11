@@ -8,11 +8,13 @@ const Auth = () => {
     setIndex((prevState) => !prevState);
   };
   return (
-    <div className="container">
+    <div className="back">
+    <div className="com">
       {!index ? <Signin /> : <Signup />}
-      <p onClick={toggleIndex}>
+      <p className="transfer" onClick={toggleIndex}>
         {!index ? "New user? Sign Up " : "Already have an account?"}
       </p>
+    </div>
     </div>
   );
 };

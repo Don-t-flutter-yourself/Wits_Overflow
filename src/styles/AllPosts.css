@@ -1,23 +1,54 @@
 .postsPage{
-    margin: 20px;
+    overflow-y: auto;
+    height: 100vh;
+    width: 100%;
+    padding: 50px 100px 100px 100px;
+    margin-bottom: 200px;
 }
 
 .sideBlock{
-    width: 250px;
-    background-color: lightblue;
+    height: 100vh;
+    width: 300px;
+    padding: 15px;
+    background-color: goldenrod;
+}
+
+.posbtn{
+    width: 200px;
+    background-color: rgb(0, 33, 65);
+    border: none;
+    color: white;
+    padding: 12px;
+    margin: 35px 0 0 5px;
+    box-shadow: 0 1px 6px #ccc;
+    border-radius: 6px;
+    font-size: 18px;
 }
 
 .postsTitle{
-    margin-left: 20px;
-    font-family: Poppins;
+    text-align: center;
+    padding: 40px;
+    background-color: rgb(0, 33, 65);
+    font-family: sans-serif;
+    color: white;
+    border: none;
+    border-radius: 6px 6px 6px 6px;
+    margin-bottom: 20px;
 }
 
 .allpostsbtn{
-    width: 400px;
+    width: 150px;
+    background-color: rgb(0, 33, 65);
+    border: none;
+    color: white;
+    padding: 12px;
+    margin: 15px 0 15px 0px;
+    box-shadow: 0 1px 6px #ccc;
+    border-radius: 6px;
+    font-size: 14px;
 }
 
 .questionContainer{
-    margin: 10px;
     height: fit-content;
     padding: 15px;
     border-radius: 20px;

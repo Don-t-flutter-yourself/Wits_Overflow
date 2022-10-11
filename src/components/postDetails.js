@@ -92,6 +92,7 @@ const PostDetails = (props) => {
             setAnswer("")
         }
     }
+
     document.body.style.overflow = 'hidden';
 
     const loc = useLocation();
@@ -100,35 +101,52 @@ const PostDetails = (props) => {
             {/* <Navbar/> */}
             <section className="details">
                 <div className="userdetails">
-                    <h2 className="postTitle" style={{ fontFamily: 'Poppins' }}>Post Details</h2><br />
-                    <h5>Post Creator :  {loc.state.my_username} </h5>
-                    <h5>Email : {loc.state.my_email} </h5>
-                    <h5>Date The Post Was Created : {new Date(loc.state.my_time.seconds * 1000).toLocaleDateString()}</h5>
-                    <h5>Time The Post Was Created : {new Date(loc.state.my_time.seconds * 1000).toLocaleTimeString()}</h5>
-                    <button onClick={() => uUpVote({u_Downvote:loc.state.my_DownVote , u_Upvote:loc.state.my_UpVote+1 , u_caption:loc.state.my_caption , u_created:loc.state.my_time , u_doc_id:loc.state.my_u_doc_id , u_email:loc.state.my_email, u_id:loc.state.my_uid, u_question:loc.state.my_question, u_username:loc.state.my_username})}>Like <h5>{up}</h5></button>
-                    <button onClick={() => uDownVote({u_Downvote:loc.state.my_DownVote+1 , u_Upvote:loc.state.my_UpVote , u_caption:loc.state.my_caption , u_created:loc.state.my_time , u_doc_id:loc.state.my_u_doc_id , u_email:loc.state.my_email, u_id:loc.state.my_uid, u_question:loc.state.my_question, u_username:loc.state.my_username})}>Dislike <h5>{down}</h5></button>
+                <h1 className="postTitle" style={{ fontFamily: 'sans-serif', fontSize:'30px', textDecoration:'underline' }}>Details</h1><br />
+                    <h3>Creator</h3>
+                    <p className="postde">{loc.state.my_username} </p>
+                    <br/>
+                    <h3>Email</h3>
+                    <p className="postde">{loc.state.my_email} </p>
+                    <br/>
+                    <h3>Date Created</h3>
+                    <p className="postde">{new Date(loc.state.my_time.seconds * 1000).toLocaleDateString()}</p>
+                    <br/>
+                    <h3>Time Created</h3>
+                    <p className="postde">{new Date(loc.state.my_time.seconds * 1000).toLocaleTimeString()}</p>
+                    <br/>
+                    <button className="likebtn" onClick={() => uUpVote({u_Downvote:loc.state.my_DownVote , u_Upvote:loc.state.my_UpVote+1 , u_caption:loc.state.my_caption , u_created:loc.state.my_time , u_doc_id:loc.state.my_u_doc_id , u_email:loc.state.my_email, u_id:loc.state.my_uid, u_question:loc.state.my_question, u_username:loc.state.my_username})}>Like <h5>{up}</h5></button>
+                    <button className="dislikebtn" onClick={() => uDownVote({u_Downvote:loc.state.my_DownVote+1 , u_Upvote:loc.state.my_UpVote , u_caption:loc.state.my_caption , u_created:loc.state.my_time , u_doc_id:loc.state.my_u_doc_id , u_email:loc.state.my_email, u_id:loc.state.my_uid, u_question:loc.state.my_question, u_username:loc.state.my_username})}>Dislike <h5>{down}</h5></button>
                 </div>
                 <div className="postdetails">
-                    <h3>Caption  : {loc.state.my_caption}  </h3>
+                <h2 className='postsTitle' style={{background:'rgb(0, 33, 65)'}}>POST DETAILS</h2>
+                    <h2 style={{marginTop:'20px', textTransform:'uppercase'}}>{loc.state.my_caption}  </h2>
                     <hr className="linedivider" />
-                    <p>Question Asked : {loc.state.my_question} </p>
+                    <p>{loc.state.my_question} </p>
+                    <br/>
                     <h2 className="answerTitle">Answers</h2>
                     <div>
                         {pulled_answers.map((ans) => (
-                           // setDate(ans.u_date.toString()) ;
-                            <div>
-                             
-                                <p className="answercontainer">
-                                    {ans.u_answer}
-                                </p>
+           <div>
+           <p className="answercontainer">
+               {ans.u_answer}
+           </p>
 
-                                <div className="answerdetails">
-                                    <div className="userA">Answered by: {ans.u_answeredby} </div>
-                                    <div className="Adate">Date: {new Date(ans.u_date.seconds * 1000).toLocaleDateString()}</div>
-                                    <div className="Adate">Time: {new Date(ans.u_date.seconds * 1000).toLocaleTimeString()}</div>
-                                </div>
-                                <hr className="linedivider" />
-                            </div>
+           <div className="answerdetails">
+               <div className="userA"> 
+                   <p className="answerlbl">Answered by: </p>
+                   <p className="answerdata">&nbsp;{ans.u_answeredby}</p>
+               </div>
+               <div className="Adate">
+                   <p className="answerlbl">Date: </p>
+                   <p className="answerdata">&nbsp;{new Date(ans.u_date.seconds * 1000).toLocaleDateString()}</p>
+               </div>
+               <div className="Adate">
+                   <p className="answerlbl">Time: </p>
+                   <p className="answerdata">&nbsp;{new Date(ans.u_date.seconds * 1000).toLocaleTimeString()}</p>
+               </div>
+           </div>
+           <hr className="linedivider" />
+       </div>
                         ))}
                     </div>
 

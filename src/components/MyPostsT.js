@@ -53,26 +53,23 @@ function MyPostsT() {
     }
 
     return (
-        <div classname='mypostPage'>
-            <h2 classname='myposttitle'>My Posts</h2>
+        <div className='mypostPage'>
+            <h2 className='myposttitle'>My Posts</h2>
 
             {myposts.map((mypost) => (
-                <>
-                    <div key={mypost.doc_id}>
-                        <h5>Username :  {mypost.u_username}</h5>
-                        <h5>Email :  {mypost.u_email}</h5>
-                        <h5>Caption :  {mypost.u_caption}</h5>
-                        <h5>Question : <p> {mypost.u_question}</p> </h5>
-                        <h5>Answer : <p> {mypost.u_answer}</p> </h5>
-                        <h5>Marked as: <p> {mypost.u_correct}</p></h5>
+                    <div className="ansCon" key={mypost.doc_id}>
+                        <h5 style={{fontFamily: 'sans-serif', textTransform:'uppercase',color:'rgba(125,125,125,1)', fontSize:'20px'}}>Caption :  {mypost.u_caption}</h5>
+                        <h5>Question : </h5>
+                        <p>{mypost.u_question}</p>
+                        <h5>Answer : </h5>
+                        <p> {mypost.u_answer}</p> 
+                        <h5>Marked as: {mypost.u_correct}</h5>
                         <div>
-                            <button classname='correctbtn' onClick={() => uCorrect({ doc_id: mypost.doc_id, u_id: mypost.u_id, u_username: mypost.u_username, u_caption: mypost.u_caption, u_question: mypost.u_question, u_answer: mypost.u_answer, u_correct: "Correct" })}>Correct</button>
-                            <button classname='incorrectbtn' onClick={() => uNotCorrect({ doc_id: mypost.doc_id, u_id: mypost.u_id, u_username: mypost.u_username, u_caption: mypost.u_caption, u_question: mypost.u_question, u_answer: mypost.u_answer, u_correct: "Not Correct" })}>Incorrect</button>
-
+                            <button className='correctbtn' onClick={() => uCorrect({ doc_id: mypost.doc_id, u_id: mypost.u_id, u_username: mypost.u_username, u_caption: mypost.u_caption, u_question: mypost.u_question, u_answer: mypost.u_answer, u_correct: "Correct" })}>Correct</button>
+                            <button className='incorrectbtn' onClick={() => uNotCorrect({ doc_id: mypost.doc_id, u_id: mypost.u_id, u_username: mypost.u_username, u_caption: mypost.u_caption, u_question: mypost.u_question, u_answer: mypost.u_answer, u_correct: "Not Correct" })}>Incorrect</button>
                         </div>
                         <hr/>
                     </div>
-                </>
             ))}
         </div>
     )

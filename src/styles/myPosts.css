@@ -1,15 +1,46 @@
 .myposttitle{
-    font-family: Poppins;
+    text-align: center;
+    padding: 40px;
+    background-color: rgb(0, 33, 65);
+    font-family: sans-serif;
+    color: white;
+    border: none;
+    border-radius: 6px 6px 6px 6px;
+    margin-bottom: 50px;
 }
 
 .mypostPage{
-    margin: 50px;
+   padding: 50px 100px 50px 100px;
+}
+
+.ansCon{
+    /* width: 80%;
+    border-radius: 6px;
+    background-color: aqua; */
+    padding: 0px 100px 50px 100px;
+    margin: -20px;
 }
 
 .correctbtn{
-    width: 200px;
+    width: 150px;
+    margin: 0 20px 0 0px;
+    background-color: rgb(0, 33, 65);
+    border: none;
+    color: white;
+    padding: 12px;
+    box-shadow: 0 1px 6px #ccc;
+    border-radius: 6px;
+    font-size: 18px;
 }
 
 .incorrectbtn{
-    width: 200px;
+    width: 150px;
+    background-color: rgb(0, 33, 65);
+    border: none;
+    color: white;
+    padding: 12px;
+    margin: 15px 0 15px 0px;
+    box-shadow: 0 1px 6px #ccc;
+    border-radius: 6px;
+    font-size: 18px;
 }

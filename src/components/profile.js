@@ -79,13 +79,13 @@ const Profile = () => {
                 <h5> { } </h5> */}
                  {profile.map((myprofile) => (
                     <div>
-                    <h3> Username: {u_username}  </h3>
-                    <h3> Firstname: {myprofile.firstnameRef}</h3>
-                    <h3> Lastname: {myprofile.lastnameRef}</h3>
-                    <h3> Student Number: {myprofile.studentNumRef}</h3>
-                    <h3> Email Address: {u_email} </h3>
-                    <h3> Date Created: {new Date(myprofile.u_created.seconds * 1000).toLocaleDateString()}</h3>
-                    <h3> Time Created: {new Date(myprofile.u_created.seconds * 1000).toLocaleTimeString()}</h3>
+                    <h3> Username: {u_username}  </h3><br/>
+                    <h3> Firstname: {myprofile.firstnameRef}</h3><br/>
+                    <h3> Lastname: {myprofile.lastnameRef}</h3><br/>
+                    <h3> Student Number: {myprofile.studentNumRef}</h3><br/>
+                    <h3> Email Address: {u_email} </h3><br/>
+                    <h3> Date Created: {new Date(myprofile.u_created.seconds * 1000).toLocaleDateString()}</h3><br/>
+                    <h3> Time Created: {new Date(myprofile.u_created.seconds * 1000).toLocaleTimeString()}</h3><br/>
                     <button className='profilebtn' onClick={handleBack}> back </button>
                     </div>
                  ))} ;

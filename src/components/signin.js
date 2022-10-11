@@ -15,17 +15,17 @@ const Signin = () => {
   };
 
   return (
-    <div className="page">
       <div className="signin-form">
-        <h2 style={{marginLeft:"40%"}}> Sign In </h2>
+        <h2 className="signh2"> Sign In </h2>
         <form onSubmit={onSubmit}>
+        <label className="txt">Email</label>
           <input placeholder="Email" type="email" required ref={emailRef} />
+          <label className="txt">Password</label>
           <input placeholder="Password" type="password" required ref={passwordRef} />
-          <button type="submit">Sign In</button>
-          <a href="/reset" style={{marginLeft:"32%"}}>Forgot Password ?</a>
+          <button className="signinbtn" type="submit">Sign In</button>
+          <a href="/reset" style={{marginLeft:"32%", color: "blue"}}>Forgot Password ?</a>
         </form>
       </div>
-    </div>
   );
 };
 
