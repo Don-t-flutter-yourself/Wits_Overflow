@@ -78,7 +78,7 @@ body {
   }
   
   .form > form > p {
-    cursor: pointer;
+    /* cursor: pointer; */
   }
   
   .error {

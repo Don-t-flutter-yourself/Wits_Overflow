@@ -11,6 +11,10 @@ import { app } from '../firebase/index' ;
 //import Select from 'react-select';
 //import makeAnimated from 'react-select/animated';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 const auth = getAuth(app) ;
 //set states for data fetching
 //commented out part of the code to be used in the next sprint
@@ -41,7 +45,7 @@ function PostsT(){
  
     function handleAddPost(datapoint){   //Where post is the entire object/datapoint
         ref.set(datapoint) 
-        alert("Question Posted.")
+        toast("Question Posted.")
     }
 
     // const actions = [

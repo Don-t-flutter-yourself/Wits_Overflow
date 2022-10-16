@@ -25,6 +25,7 @@
     "react-toastify": "^9.0.8",
     "save": "^2.9.0",
     "styled-components": "^5.3.5",
+    "sweetalert": "^2.1.2",
     "util": "^0.12.4",
     "uuidv4": "^6.2.13",
     "web-vitals": "^2.1.4"
