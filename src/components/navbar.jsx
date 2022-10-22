@@ -58,11 +58,11 @@ function Navbar() {
             Answers-To-My-Posts
           </a>
         </li>
-        {/* <li className="nav__item">
+        <li className="nav__item">
           <a href="/allusers" className="nav__link">
             Users
           </a>
-        </li> */}
+        </li>
         <li className="nav__item">
           <a href="/" className="nav__link">
           <div onClick={logoutUser}>Log out</div>

@@ -3,7 +3,6 @@ import Navbar from "./navbar";
 import "../components/navbar.css";
 import firebase from "../firebase/index";
 import { useEffect, useState } from 'react';
-import Container  from "@material-ui/core";
 
 const Dashboard = () => {
     const [myAnswers, setMyAnswers] = useState([]);

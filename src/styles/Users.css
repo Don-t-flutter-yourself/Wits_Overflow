@@ -1,0 +1,71 @@
+.usersPage{
+    padding: 50px 100px 50px 100px;
+    background-color: goldenrod;
+
+}
+
+.usersTitle{
+    text-align: center;
+    padding: 30px;
+    background-color: rgb(0, 33, 65);
+    font-family: sans-serif;
+    color: white;
+    border: none;
+    border-radius: 6px 6px 6px 6px;
+    margin-bottom: 30px;
+}
+
+.userImage{
+    height: 50px;    
+    width: 50px;
+    margin: 30px;
+    border-radius: 25px;
+    border-color: rgb(0, 33, 65);
+    border-width: 2px;
+    border-style: solid;
+}
+
+.usersDet{
+    margin: 20px 100px 20px 0px;
+}
+
+.friendbtn{
+    width: 200px;
+    height: 50px;
+    background-color: rgb(0, 33, 65);
+    border: none;
+    color: white;
+    padding: 12px;
+    box-shadow: 0 1px 6px #ccc;
+    border-radius: 6px;
+    font-size: 18px;
+    position: absolute;
+    right: 13%;
+    margin: 2%;
+
+}
+
+.userBox{
+    display: flex;
+    width: 90%;
+    height: 20%;
+    border-radius: 20px; 
+    margin: 0px 0px 20px 50px;
+    background-color: white;
+}
+
+.userN{
+    color: rgb(0, 33, 65);
+}
+
+.firstN{
+    color: goldenrod;
+    font-family: poppin;
+    margin: 10px 0 10px 0;
+}
+
+.studentN{
+    color: rgb(0, 33, 65);
+    font-family: poppin;
+
+}
