@@ -1,44 +1,56 @@
 import React, { useState, useEffect } from 'react'
-import firebase from '../firebase/index' 
-//import {Container} from '@material-ui/core'
+import firebase from '../firebase/index'
+import '../styles/Users.css';
 
-function UsersT(){
-    const [allUsers, setUsers] = useState([]) ;
+function UsersT() {
+    const [allUsers, setUsers] = useState([]);
     const ref = firebase.firestore().collection("Users");
 
-    function AllUsers(){
-        ref.onSnapshot((querySnapshot) => { 
-            const items = [] ;
-            querySnapshot.forEach((doc) => {items.push(doc.data()) ;
-            }) ;
-            setUsers(items) ;
-        }) ;
+    function AllUsers() {
+        ref.onSnapshot((querySnapshot) => {
+            const items = [];
+            querySnapshot.forEach((doc) => {
+                items.push(doc.data());
+            });
+            setUsers(items);
+        });
     }
 
-    useEffect(() => { AllUsers() }, []) ;
+    useEffect(() => { AllUsers() }, []);
 
-    return(
-        <div>
-              <h2>All Students</h2>
-              {allUsers.map((user) => (
-                <>
-                <div key= {user.studentNumRef}> 
-                {/* <Container maxWidth="lg" style={{backgroundColor:"whitesmoke"}}> */}
-                    <h3 style={{color:"blue"}}>Name :  {user.firstnameRef}</h3>
-                    <h3 style={{color:"blue"}}> Lastname: {user.lastnameRef} </h3>
-                    <h3 style={{color:"blue"}}>Student Number: {user.studentNumRef}</h3>   
-                {/* </Container> */}
-                </div>
-                <div>
-                    <p>    ===========================================================================================================================</p>
-                </div>
-                </>
-            ))}
+    const [addFriend, setAddFriend] = useState();
+    const handleAddFriend = () => {
+        setAddFriend(!addFriend);
+    };
 
-        </div>
+    return (
+        <React.Fragment>
+            <section>
+                <div className='usersPage'>
+                    <h2 className='usersTitle'>All Users</h2>
+                    {allUsers.map((user) => (
+
+                        <div key={user.studentNumRef}>
+                            <div className='userBox'>
+                                <img className='userImage'
+                                    src="https://th.bing.com/th/id/R.77f5794e2eb49f7989b8f85e92cfa4e0?rik=FPingw5xw%2fAHXA&pid=ImgRaw&r=0"
+                                />
+                                <div className='usersDet'>
+                                    <h3 className='userN'>{user.usernameRef}</h3>
+                                    <h4 className='firstN'>{user.firstnameRef} {user.lastnameRef} </h4>
+                                    <h4 className='studentN'>{user.studentNumRef}</h4>
+                                </div>
+                                <button className='friendbtn' onClick={handleAddFriend}> {addFriend ? "Friend" : "Add Friend"} </button>
+                            </div>
+                        </div>
+                    ))}
+
+                </div>
+            </section>
+        </React.Fragment>
     )
 }
 
-export default UsersT ;
+export default UsersT;
 
 

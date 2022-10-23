@@ -116,5 +116,3 @@ function AllPostsT() {
 }
 
 export default AllPostsT;
-
-
