@@ -106,11 +106,11 @@ const Profile = () => {
                 </div>
 
                 <div className="rightprofile">
-                    <div>
-                        <img/>
-                        <p>Username</p>
-                        <p>Student Number</p>
-                        <button>View</button>
+                    <div className="friendBox">
+                        <img style={{width:"80px", margin:"40px 0px 20px 0px", borderRadius:"40px"}} src="https://th.bing.com/th/id/R.77f5794e2eb49f7989b8f85e92cfa4e0?rik=FPingw5xw%2fAHXA&pid=ImgRaw&r=0"/>
+                        <h2>Username</h2>
+                        <h3>Student Number</h3>
+                        <button className="viewbtn">View</button>
                     </div>
                 </div>
             </section>
