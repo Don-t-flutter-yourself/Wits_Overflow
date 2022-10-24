@@ -3,6 +3,8 @@ import firebase from '../firebase/index'
 //import {Container} from '@material-ui/core';
 import { useNavigate } from "react-router-dom";
 import '../styles/AllPosts.css';
+import Select from 'react-select';
+import makeAnimated from 'react-select/animated';
 
 
 
@@ -80,6 +82,35 @@ function AllPostsT() {
 
     document.body.style.overflow = 'hidden';
 
+    const categories = [
+        { label: "Software Design", value: 1 },
+        { label: "Software Design Project", value: 2 },
+        { label: "Advanced Analysis of Algorithms", value: 3 },
+        { label: "Parallel Computing", value: 4 },
+        { label: "Operating Systems", value: 5 },
+        { label: "Computer Graphics and Visualization", value: 6 },
+        { label: "Machine Learning", value: 7 },
+        { label: "Formal Languages and Automata", value: 8 }
+    ];
+
+    const sorts = [
+        { label: "A-Z", value: 1 },
+        { label: "Z-A", value: 2 },
+        { label: "Likes", value: 3 },
+        { label: "Most recent", value: 4 },
+        { label: "Answered", value: 5 }
+        // { label: "Computer Graphics and Visualization", value: 6 },
+        // { label: "Machine Learning", value: 7 },
+        // { label: "Formal Languages and Automata", value: 8 }
+    ];
+
+    const [category, setCategory] = useState("SearchByCategory")
+    const [sortBy, setSort] = useState("SortBy")
+
+    const handleChange = (e) => {
+        console.log(e.label)
+    }
+
     return (
         <React.Fragment>
             <section className="details">
@@ -91,6 +122,28 @@ function AllPostsT() {
 
                     <div className="search">
                         <input placeholder="search post" type="text" onChange={(e) => setSearch(e.target.value)} value={searchQuery}/>
+                    </div>
+
+                    <div className='sort-cat'>
+                        <div className="searchCat">
+                            <Select placeholder={category} options={categories} isSearchable
+                                onChange={(event) => 
+                                //setCategory(Array.isArray(event)?event.map(x=>x.label):[])
+                                setCategory(event.label)
+                                //handleChange(event)
+                                }
+                            />
+                        </div>
+
+                        <div className="searchSort">
+                            <Select placeholder={sortBy} options={sorts}
+                                onChange={(event) => 
+                                //setCategory(Array.isArray(event)?event.map(x=>x.label):[])
+                                setSort(event.label)
+                                //handleChange(event)
+                                }
+                            />
+                        </div>
                     </div>
 
                     {posts.filter((post) => {

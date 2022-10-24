@@ -57,3 +57,11 @@
 .linedivide{
     margin-top: 20px;
 }
+.sort-cat{
+    width: 200px;
+    margin-left: 12px;
+    /* justify-items: right; */
+}
+.searchSort{
+    justify-self: right;
+}
