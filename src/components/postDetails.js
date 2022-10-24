@@ -7,7 +7,6 @@ import firebase from '../firebase/index';
 //import Navbar from './navbar';
 
 import { app } from '../firebase/index';
-
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 

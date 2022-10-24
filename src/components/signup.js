@@ -18,7 +18,8 @@ const Signup = () => {
   const [passwordRef, setPassword] = useState('') ;
   const [confirmPassRef, setConfirmPassword] = useState('') ;
 
-  const ref = firebase.firestore().collection('Users');
+  const users_doc_id = uuidv4() ;
+  const ref = firebase.firestore().collection('Users').doc(users_doc_id);
 
   
    function handleSubmit(datapoint){
@@ -37,8 +38,7 @@ const Signup = () => {
         alert(`Either your password is short or it doesnt match your confirm password`) 
        }else{
         registerUser(emailRef, passwordRef, usernameRef);
-        ref.doc(datapoint.id)
-        ref.add(datapoint)
+        ref.set(datapoint)
         alert("Registered.")
 
        }
@@ -55,7 +55,7 @@ const Signup = () => {
       <input placeholder="Email - STUDENTNUMBER@students.wits.ac.za" type="email"  onChange={(event) => setEmail(event.target.value)}/>
       <input placeholder="Password - Six or more letters" type="password"  onChange={(event) => setPassword(event.target.value)} />
       <input placeholder="Confirm Password Six or more letters" type="password" onChange={(event) => setConfirmPassword(event.target.value)} />
-      <button className="signupbtn" type="submit" onClick={() => handleSubmit({firstnameRef, lastnameRef, studentNumRef, emailRef, usernameRef, passwordRef, u_created: new Date(),  u_id: uuidv4()})}>Register</button>       
+      <button className="signupbtn" type="submit" onClick={() => handleSubmit({u_image:"", users_doc_id, firstnameRef, lastnameRef, studentNumRef, emailRef, usernameRef, passwordRef, u_created: new Date(),  u_id: uuidv4()})}>Register</button>       
    
     </form>
   </div>
