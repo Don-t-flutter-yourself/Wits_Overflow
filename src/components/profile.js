@@ -121,7 +121,7 @@ const Profile = () => {
                        <h3> Lastname: <input className="proInputLname" placeholder={myprofile.lastnameRef}/> </h3>
                        <h3> Student Number: <input className="proInputSnum" placeholder={myprofile.studentNumRef}/> </h3>
                        <h3> Email Address: <input className="proInputEmail" placeholder={u_email}/> </h3>
-                       <h3> Date Created: {new Date(myprofile.u_created.seconds * 1000).toLocaleDateString()}</h3><br/>
+                       <h3 style={{position:"relative"}}> Date Created: <p >{new Date(myprofile.u_created.seconds * 1000).toLocaleDateString()}</p></h3><br/>
                        <h3> Time Created: {new Date(myprofile.u_created.seconds * 1000).toLocaleTimeString()}</h3><br/>
                        <button>Submit</button>
                        </div>
