@@ -98,6 +98,19 @@ function UsersT() {
         alert("Friend Request Added")
     }
 
+    // const [profile, setProfile] = useState([]);
+    // const prof = firebase.firestore().collection("Users");
+
+    // function getProfile() {
+    //     prof.where('emailRef', '==', u_email).where('usernameRef', '==', u_username).onSnapshot((querySnapshot) => {
+    //         const items = [];
+    //         querySnapshot.forEach((doc) => {
+    //             items.push(doc.data());
+    //         });
+    //         setProfile(items);
+    //     })
+    // }
+
     return (
         <React.Fragment>
             <section>
@@ -115,7 +128,7 @@ function UsersT() {
                                     <h4 className='firstN'>{user.firstnameRef} {user.lastnameRef} </h4>
                                     <h4 className='studentN'>{user.studentNumRef}</h4>
                                 </div>
-                                <button className='friendbtn' onClick={() => handleAddFriend({requestedBy_Email, requestedBy_id, requestTo_u_id: user.u_id, requestTo_name: user.firstnameRef, requestTo_STN: user.studentNumRef, requestTo_Username: user.usernameRef})}>Add Friend </button>
+                                <button className='friendbtn' onClick={() => handleAddFriend({requestedBy_Email, requestedBy_id, requestTo_u_id: user.u_id, requestTo_name: user.firstnameRef, requestTo_STN: user.studentNumRef, requestTo_Username: user.usernameRef})}> Add Friend </button>
 
                                 {/* <button className='friendbtn' onClick={() => AddFriend(user.u_id, currentU)}>
                                     {addFriend ? "Friend" : "Add Friend"}
