@@ -4,6 +4,7 @@ import { getAuth } from "firebase/auth";
 //////Thabelo:
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
+import 'firebase/compat/storage';
 //////Thabelo:
 
 const firebaseConfig = {
@@ -27,5 +28,7 @@ export const auth = getAuth(app);
 
 /////Thabelo:
 firebase.initializeApp(firebaseConfig) ;
-export default firebase;
+const storage = firebase.storage();
+export {storage, firebase as default};
+//export default firebase;
 /////Thabelo:

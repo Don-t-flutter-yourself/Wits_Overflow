@@ -30,6 +30,7 @@ const PostDetails = (props) => {
     const [u_id, setId] = useState("");
     //const [u_date, setDate] = useState("");
     const [own_id, setOwnId] = useState('');
+    const [u_image, setImage] = useState();
 
     const [u_answeredby, setName] = useState('');
 
@@ -49,6 +50,7 @@ const PostDetails = (props) => {
                 setUsername(loc.state.my_username);
                 setId(loc.state.my_uid);
                 setCreated(loc.state.my_time)
+                setImage(loc.state.my_image)
                 Pulling(loc.state.my_question)
                 setUser(user)
             }
@@ -127,6 +129,10 @@ const PostDetails = (props) => {
                     <h2 style={{marginTop:'20px', textTransform:'uppercase'}}>{loc.state.my_caption}  </h2>
                     <hr className="linedivider" />
                     <p>{loc.state.my_question} </p>
+                    {u_image!=="" && <img className="post-image"
+                        src={u_image}
+                        alt="" >
+                    </img>}
                     <br/>
                     <h2 className="answerTitle">Answers</h2>
                     <div>

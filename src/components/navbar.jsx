@@ -34,11 +34,6 @@ function Navbar() {
           </a>
         </li>
         <li className="nav__item">
-          <a href="/dashboard" className="nav__link">    
-           
-          </a>
-        </li>
-        <li className="nav__item">
           <a href="/profile" className="nav__link">    
             Profile
           </a>
