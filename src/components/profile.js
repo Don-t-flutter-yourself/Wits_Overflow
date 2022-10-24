@@ -83,8 +83,6 @@ const Profile = () => {
         setSelectedImage(event.target.files[0]);
     };
 
-
-
     return (
         <React.Fragment>
             <section className="profilePage">
