@@ -134,7 +134,7 @@ const PostDetails = (props) => {
                     <h2 style={{marginTop:'20px', textTransform:'uppercase'}}> {loc.state.my_caption} </h2>
                     <hr className="linedivider" />
                     <p> {loc.state.my_question} </p>
-                    {u_image !== "" || <img className="post-image"
+                    {u_image !== "" && <img className="post-image"
                         src={u_image}
                         alt="" >
                     </img>}

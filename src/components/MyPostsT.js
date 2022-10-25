@@ -2,6 +2,8 @@ import React from "react";
 import firebase from "../firebase/index";
 //mport { UserContext } from "../context/userContext";
 import '../styles/myPosts.css';
+import { TiTick } from "react-icons/ti";
+import { ImCross } from "react-icons/im";
 
 import { useEffect, useState } from 'react';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
@@ -68,17 +70,22 @@ function MyPostsT() {
 
             {myposts.map((mypost) => (
                     <div className="ansCon" key={mypost.doc_id}>
-                        <h5 style={{fontFamily: 'sans-serif', textTransform:'uppercase',color:'rgba(125,125,125,1)', fontSize:'20px'}}>Caption :  {mypost.u_caption}</h5>
+                        <h5 style={{fontFamily: 'sans-serif', textTransform:'uppercase',color:'rgb(0, 33, 65)', fontSize:'20px'}}>Caption :  {mypost.u_caption}</h5>
                         <h5>Question : </h5>
-                        <p>{mypost.u_question}</p>
+                        <p style={{color:"whitesmoke"}}>{mypost.u_question}</p>
                         <h5>Answer : </h5>
-                        <p> {mypost.u_answer}</p> 
+                        <p style={{color:"whitesmoke"}}> {mypost.u_answer}</p> 
                         <h5>Marked as: {mypost.u_correct}</h5>
                         <div>
-                            <button className='correctbtn' onClick={() => uCorrect({ doc_id: mypost.doc_id, u_id: mypost.u_id, u_username: mypost.u_username, u_caption: mypost.u_caption, u_question: mypost.u_question, u_answer: mypost.u_answer, u_correct: "Correct" })}>Correct</button>
-                            <button className='incorrectbtn' onClick={() => uNotCorrect({ doc_id: mypost.doc_id, u_id: mypost.u_id, u_username: mypost.u_username, u_caption: mypost.u_caption, u_question: mypost.u_question, u_answer: mypost.u_answer, u_correct: "Not Correct" })}>Incorrect</button>
+                            <button className='correctbtn' onClick={() => uCorrect({ doc_id: mypost.doc_id, u_id: mypost.u_id, u_username: mypost.u_username, u_caption: mypost.u_caption, u_question: mypost.u_question, u_answer: mypost.u_answer, u_correct: "Correct" })}>
+                                <TiTick size={18} color={"#F5F5F5"} style={{marginRight:"15px", marginTop:"5px"}}/>
+                                Correct
+                            </button>
+                            <button className='incorrectbtn' onClick={() => uNotCorrect({ doc_id: mypost.doc_id, u_id: mypost.u_id, u_username: mypost.u_username, u_caption: mypost.u_caption, u_question: mypost.u_question, u_answer: mypost.u_answer, u_correct: "Not Correct" })}>
+                                <ImCross size={12} color={"#F5F5F5"} style={{marginRight:"15px", marginTop:"10px"}}/>
+                                Incorrect
+                            </button>
                         </div>
-                        <hr/>
                     </div>
             ))}
         </div>
