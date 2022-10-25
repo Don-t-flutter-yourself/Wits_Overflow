@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import firebase from '../firebase/index'
 import { useNavigate } from "react-router-dom";
-import '../styles/postDetails.css';
+import '../styles/category.css';
+import {Container, Row , Col } from 'react-grid';
 
 const Categories = () => {
     const [Category, setCat] = useState('');
@@ -20,15 +21,23 @@ const Categories = () => {
 
     return (
         <div className="categories">
-            <h2 className='category' style={{background:'rgb(0, 33, 65)'}}>Category Details</h2>
+            <h2 className='category'>Category</h2>
+            <div className='col'>
             {categories.map((cat) => (
-                <div>
-                    <h2 style={{marginTop:'20px', textTransform:'uppercase'}}>{cat.Category}:</h2>
+                <Container >
+                <Row>
+                  <Col>
+                    <div  className='categoryBox'>
+                  <h2 style={{marginTop:'20px', textTransform:'uppercase'}}>{cat.Category}:</h2>
                     <hr className="linedivider" />
                     <p>Description - {cat.Description} </p>
                     <br/>
-                </div>
+                    </div>
+                  </Col>
+                </Row>
+              </Container>
             ))}
+            </div>
         </div>
     )
 }
