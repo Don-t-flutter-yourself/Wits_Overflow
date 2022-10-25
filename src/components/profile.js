@@ -19,9 +19,6 @@ const Profile = () => {
     const [u_id, setId] = useState('');
     const [u_email, setEmail] = useState('');
 
-
-
-
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
@@ -149,8 +146,6 @@ const Profile = () => {
                         </div>
                     ))}
                 </div>
-
-
             </section>
         </React.Fragment>
     );
