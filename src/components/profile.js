@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import React, { Profiler } from "react";
 import firebase from "../firebase/index";
 
-import {BiImageAdd} from "react-icons/bi";
+import { BiImageAdd } from "react-icons/bi";
 
 import { useEffect, useState } from 'react';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
@@ -18,9 +18,6 @@ const Profile = () => {
     const [u_username, setUsername] = useState('');
     const [u_id, setId] = useState('');
     const [u_email, setEmail] = useState('');
-
-
-
 
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
@@ -74,7 +71,7 @@ const Profile = () => {
 
     const hiddenFileInput = React.useRef(null);
     const [postimage, setSelectedImage] = useState('')
-    
+
     const handleClick = event => {
         hiddenFileInput.current.click();
     };
@@ -83,6 +80,8 @@ const Profile = () => {
         setSelectedImage(event.target.files[0]);
     };
 
+    document.body.style.overflow = 'hidden';
+
     return (
         <React.Fragment>
             <section className="profilePage">
@@ -90,57 +89,63 @@ const Profile = () => {
                     <h1 className="profileTitle">Profile</h1>
                     <div className="imgContainer">
                         <div>
-                         {!postimage && <img
-                            className="defaultImg"
-                            src="https://th.bing.com/th/id/R.77f5794e2eb49f7989b8f85e92cfa4e0?rik=FPingw5xw%2fAHXA&pid=ImgRaw&r=0"
-                            alt=""
-                        />} 
-                         {postimage && <img
-                            className="selectedImg"
-                            src={URL.createObjectURL(postimage)}
-                            alt="not found"
-                        />} 
-                       
+                            {!postimage && <img
+                                className="defaultImg"
+                                src="https://th.bing.com/th/id/R.77f5794e2eb49f7989b8f85e92cfa4e0?rik=FPingw5xw%2fAHXA&pid=ImgRaw&r=0"
+                                alt=""
+                            />}
+                            {postimage && <img
+                                className="selectedImg"
+                                src={URL.createObjectURL(postimage)}
+                                alt="not found"
+                            />}
+
                         </div>
                         <button className="imgSelector" onClick={handleClick}>
-                            <BiImageAdd className="addImgIcon" size={25} color={"#F5F5F5"}/>
+                            <BiImageAdd className="addImgIcon" size={25} color={"#F5F5F5"} />
                         </button>
                         <input
-                            style={{display:'none'}}
+                            style={{ display: 'none' }}
                             type="file"
                             ref={hiddenFileInput}
                             onChange={handleChange}
                         />
                     </div>
                     {profile.map((myprofile) => (
-                    <div className="proDetails">
-                        <div key={myprofile.users_doc_id}>
-                        
-                       <h3> Username:  <input className="proInputUname" placeholder={u_username}/> </h3>
-                       <h3> Firstname: <input className="proInputFname" placeholder={myprofile.firstnameRef}/> </h3>
-                       <h3> Lastname: <input className="proInputLname" placeholder={myprofile.lastnameRef}/> </h3>
-                       <h3> Student Number: <input className="proInputSnum" placeholder={myprofile.studentNumRef}/> </h3>
-                       <h3> Email Address: <input className="proInputEmail" placeholder={u_email}/> </h3>
-                       <h3> Date Created: {new Date(myprofile.u_created.seconds * 1000).toLocaleDateString()}</h3><br/>
-                       <h3> Time Created: {new Date(myprofile.u_created.seconds * 1000).toLocaleTimeString()}</h3><br/>
-                       <button>Submit</button>
-                       </div>
-                    </div>
+                        <div className="proDetails">
+                            <div key={myprofile.users_doc_id}>
+
+                                <h5> Username:  <input className="proInputUname" placeholder={u_username} /> </h5>
+                                <h5> Firstname: <input className="proInputFname" placeholder={myprofile.firstnameRef} /> </h5>
+                                <h5> Lastname: <input className="proInputLname" placeholder={myprofile.lastnameRef} /> </h5>
+                                <h5> Student Number: <input className="proInputSnum" placeholder={myprofile.studentNumRef} /> </h5>
+                                <h5> Email Address: <input className="proInputEmail" placeholder={u_email} /> </h5>
+                                <div style={{ paddingTop: '20px', fontSize: '14px' }}>
+                                    <span style={{ fontWeight: 'bold', marginRight: '100px' }}> Date created: {new Date(myprofile.u_created.seconds * 1000).toLocaleDateString()}</span>
+                                    <span style={{ fontWeight: 'bold' }}> Time created: {new Date(myprofile.u_created.seconds * 1000).toLocaleTimeString()}</span>
+                                </div>
+                                <button className="btn">Submit</button>
+                            </div>
+                        </div>
 
                     ))}
                 </div>
-                
-                {friends.map((myfriend) => (
-                <div className="rightprofile">
-                    <div className="friendBox">
-                        <img style={{width:"80px", margin:"40px 0px 20px 0px", borderRadius:"40px"}} src="https://th.bing.com/th/id/R.77f5794e2eb49f7989b8f85e92cfa4e0?rik=FPingw5xw%2fAHXA&pid=ImgRaw&r=0"/>
-                        <h2>Username - {myfriend.requestTo_name}</h2>
-                        <h3>Student Number - {myfriend.requestTo_STN}</h3>
-                        <button className="viewbtn">View</button>
-                    </div>
-                </div>
-                 ))}
 
+
+                <div className="rightprofile">
+                    <h1 className="profileTitle" style={{ marginTop: "-30px" }}>Friends</h1>
+
+                    {friends.map((myfriend) => (
+                        <div className="friendBox">
+                            <img className="friendPhoto" src="https://th.bing.com/th/id/R.77f5794e2eb49f7989b8f85e92cfa4e0?rik=FPingw5xw%2fAHXA&pid=ImgRaw&r=0" />
+                            <div className="friendDet">
+                                <h4>Username: {myfriend.requestTo_name}</h4>
+                                <h4>Student Number: {myfriend.requestTo_STN}</h4>
+                            </div>
+                            {/* <button className="viewbtn">View</button> */}
+                        </div>
+                    ))}
+                </div>
             </section>
         </React.Fragment>
     );

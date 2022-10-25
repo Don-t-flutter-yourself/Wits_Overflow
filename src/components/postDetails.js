@@ -4,8 +4,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import firebase from '../firebase/index';
-//import Navbar from './navbar';
-
+import { AiFillLike, AiFillDislike } from "react-icons/ai";
 import { app } from '../firebase/index';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
@@ -121,15 +120,21 @@ const PostDetails = (props) => {
                     <h3>Time Created</h3>
                     <p className="postde">{new Date(loc.state.my_time.seconds * 1000).toLocaleTimeString()}</p>
                     <br/>
-                    <button className="likebtn" onClick={() => uUpVote({u_Downvote:loc.state.my_DownVote , u_Upvote:loc.state.my_UpVote+1 , u_caption:loc.state.my_caption , u_created:loc.state.my_time , u_doc_id:loc.state.my_u_doc_id , u_email:loc.state.my_email, u_id:loc.state.my_uid, u_question:loc.state.my_question, u_username:loc.state.my_username})}>Like <h5>{up}</h5></button>
-                    <button className="dislikebtn" onClick={() => uDownVote({u_Downvote:loc.state.my_DownVote+1 , u_Upvote:loc.state.my_UpVote , u_caption:loc.state.my_caption , u_created:loc.state.my_time , u_doc_id:loc.state.my_u_doc_id , u_email:loc.state.my_email, u_id:loc.state.my_uid, u_question:loc.state.my_question, u_username:loc.state.my_username})}>Dislike <h5>{down}</h5></button>
+                    <button className="likebtn" onClick={() => uUpVote({u_Downvote:loc.state.my_DownVote , u_Upvote:loc.state.my_UpVote+1 , u_caption:loc.state.my_caption , u_created:loc.state.my_time , u_doc_id:loc.state.my_u_doc_id , u_email:loc.state.my_email, u_id:loc.state.my_uid, u_question:loc.state.my_question, u_username:loc.state.my_username})}>
+                        <AiFillLike size={25} color={"#F5F5F5"}/>
+                        <h5>{up}</h5>
+                    </button>
+                    <button className="dislikebtn" onClick={() => uDownVote({u_Downvote:loc.state.my_DownVote+1 , u_Upvote:loc.state.my_UpVote , u_caption:loc.state.my_caption , u_created:loc.state.my_time , u_doc_id:loc.state.my_u_doc_id , u_email:loc.state.my_email, u_id:loc.state.my_uid, u_question:loc.state.my_question, u_username:loc.state.my_username})}>
+                        <AiFillDislike size={25} color={"#F5F5F5"}/> 
+                        <h5>{down}</h5>
+                    </button>
                 </div>
                 <div className="postdetails">
                 <h2 className='postsTitle' style={{background:'rgb(0, 33, 65)'}}>POST DETAILS</h2>
-                    <h2 style={{marginTop:'20px', textTransform:'uppercase'}}>{loc.state.my_caption}  </h2>
+                    <h2 style={{marginTop:'20px', textTransform:'uppercase'}}> {loc.state.my_caption} </h2>
                     <hr className="linedivider" />
-                    <p>{loc.state.my_question} </p>
-                    {u_image!=="" && <img className="post-image"
+                    <p> {loc.state.my_question} </p>
+                    {u_image !== "" && <img className="post-image"
                         src={u_image}
                         alt="" >
                     </img>}
