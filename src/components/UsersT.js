@@ -6,14 +6,10 @@ import { v4  as uuidv4 } from 'uuid' ;
 import { app } from '../firebase/index';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
-// import { getAuth, onAuthStateChanged } from "firebase/auth";
-// import { app } from '../firebase/index';
-
 const auth = getAuth(app);
 
 function UsersT() {
     const [allUsers, setUsers] = useState([]);
-    const [currentU, setCurrentU] = useState({});
     const ref = firebase.firestore().collection("Users");
 
     const [requestedBy_Email, setMyemail] = useState('');
@@ -30,11 +26,6 @@ function UsersT() {
         })
     }, []);
 
-    // useEffect(() => {
-    //     currentUser()
-    //     AllUsers()
-    // });
-
     function AllUsers() {
         ref.where('emailRef', '!=', requestedBy_Email).onSnapshot((querySnapshot) => {
             const items = [];
@@ -49,67 +40,12 @@ function UsersT() {
         AllUsers();
     });
 
-
-    //         // console.log('items:', items)
-    //     });
-    // }
-
-    // function currentUser() {
-    //     // const my_ref = firebase.firestore().collection('Users')
-
-    //     onAuthStateChanged(auth, (user) => {
-    //         if (user) {
-    //             ref.where('emailRef', '==', user.email).onSnapshot((querySnapshot) => {
-    //                 const items = [];
-    //                 querySnapshot.forEach((doc) => {
-    //                     items.push(doc.data());
-    //                 });
-    //                 setCurrentU(items[0])
-    //             })
-    //         }
-    //     })
-    // }
-
-    // function isFriend(friendId) {
-    //     // console.log('friendID = ', friendId, '\nfriendslist = ', currentU.myFriendsRef)
-    //     // if (currentU.myFriendsRef !== undefined) {
-    //         console.log('we do not know') 
-    //     //     if (currentU.myFriendsRef.contains(friendId)) console.log('h: ', 'true') 
-    //     // }
-    //     // else console.log("ít is undefined")
-
-    //     // return currentU.myFriendsRef.contains(friendId)
-    // }
-
-    // const AddFriend = (friendId, curr) => {
-    //     // const my_ref = firebase.firestore().collection('Users')
-    //     console.log('currrr: ', currentU.myFriendsRef)
-    //     console.log(friendId)
-    //     ref.doc('ruAV3XP8vEyyqldRPlOF').update({ myFriendsRef: [...curr.myFriendsRef, friendId] })
-    // }
-
-
-
     const friend_doc_id = uuidv4() ;
     const ref2 = firebase.firestore().collection('Friends').doc(friend_doc_id) ;
     function handleAddFriend(friend){
         ref2.set(friend)
-        
         alert("Friend Request Added")
     }
-
-    // const [profile, setProfile] = useState([]);
-    // const prof = firebase.firestore().collection("Users");
-
-    // function getProfile() {
-    //     prof.where('emailRef', '==', u_email).where('usernameRef', '==', u_username).onSnapshot((querySnapshot) => {
-    //         const items = [];
-    //         querySnapshot.forEach((doc) => {
-    //             items.push(doc.data());
-    //         });
-    //         setProfile(items);
-    //     })
-    // }
 
     return (
         <React.Fragment>
@@ -129,10 +65,6 @@ function UsersT() {
                                     <h4 className='studentN'>{user.studentNumRef}</h4>
                                 </div>
                                 <button className='friendbtn' onClick={() => handleAddFriend({requestedBy_Email, requestedBy_id, requestTo_u_id: user.u_id, requestTo_name: user.firstnameRef, requestTo_STN: user.studentNumRef, requestTo_Username: user.usernameRef})}> Add Friend </button>
-
-                                {/* <button className='friendbtn' onClick={() => AddFriend(user.u_id, currentU)}>
-                                    {addFriend ? "Friend" : "Add Friend"}
-                                </button> */}
                             </div>
                         </div>
                     ))}

@@ -65,12 +65,8 @@ const AnswerT = (props) => {
                 setUsername(loc.state.my_username) ;
                 setId(loc.state.my_uid) ;
             } 
-                
-
-
               } />
              <button onClick={()=>myAnswer({u_id, doc_id, u_username, u_email, u_caption, u_question, u_answer, u_correct: "Not Yet Marked"})}>Submit</button>
-
         </div>
     )
 }

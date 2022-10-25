@@ -83,6 +83,8 @@ const Profile = () => {
         setSelectedImage(event.target.files[0]);
     };
 
+    document.body.style.overflow = 'hidden';
+
     return (
         <React.Fragment>
             <section className="profilePage">
@@ -121,9 +123,9 @@ const Profile = () => {
                                 <h5> Lastname: <input className="proInputLname" placeholder={myprofile.lastnameRef} /> </h5>
                                 <h5> Student Number: <input className="proInputSnum" placeholder={myprofile.studentNumRef} /> </h5>
                                 <h5> Email Address: <input className="proInputEmail" placeholder={u_email} /> </h5>
-                                <div style={{paddingTop: '20px', fontSize: '14px'}}>
-                                    <span style={{fontWeight: 'bold', marginRight: '100px'}}> Date created: {new Date(myprofile.u_created.seconds * 1000).toLocaleDateString()}</span>
-                                    <span style={{fontWeight: 'bold'}}> Time created: {new Date(myprofile.u_created.seconds * 1000).toLocaleTimeString()}</span>    
+                                <div style={{ paddingTop: '20px', fontSize: '14px' }}>
+                                    <span style={{ fontWeight: 'bold', marginRight: '100px' }}> Date created: {new Date(myprofile.u_created.seconds * 1000).toLocaleDateString()}</span>
+                                    <span style={{ fontWeight: 'bold' }}> Time created: {new Date(myprofile.u_created.seconds * 1000).toLocaleTimeString()}</span>
                                 </div>
                                 <button className="btn">Submit</button>
                             </div>
@@ -134,16 +136,16 @@ const Profile = () => {
 
 
                 <div className="rightprofile">
+                    <h1 className="profileTitle" style={{ marginTop: "-30px" }}>Friends</h1>
+
                     {friends.map((myfriend) => (
                         <div className="friendBox">
-                            <span>
-                                <img style={{ width: "80px", margin: "40px 0px 20px 0px", borderRadius: "40px" }} src="https://th.bing.com/th/id/R.77f5794e2eb49f7989b8f85e92cfa4e0?rik=FPingw5xw%2fAHXA&pid=ImgRaw&r=0" />
-                            </span>
-                            <span>
-                                <h5>Username - {myfriend.requestTo_name}</h5>
-                                <h5>Student Number - {myfriend.requestTo_STN}</h5>
-                                <button className="viewbtn">View</button>
-                            </span>
+                            <img className="friendPhoto" src="https://th.bing.com/th/id/R.77f5794e2eb49f7989b8f85e92cfa4e0?rik=FPingw5xw%2fAHXA&pid=ImgRaw&r=0" />
+                            <div className="friendDet">
+                                <h4>Username: {myfriend.requestTo_name}</h4>
+                                <h4>Student Number: {myfriend.requestTo_STN}</h4>
+                            </div>
+                            {/* <button className="viewbtn">View</button> */}
                         </div>
                     ))}
                 </div>

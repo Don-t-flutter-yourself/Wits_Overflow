@@ -126,10 +126,10 @@ const PostDetails = (props) => {
                 </div>
                 <div className="postdetails">
                 <h2 className='postsTitle' style={{background:'rgb(0, 33, 65)'}}>POST DETAILS</h2>
-                    <h2 style={{marginTop:'20px', textTransform:'uppercase'}}>{loc.state.my_caption}  </h2>
+                    <h2 style={{marginTop:'20px', textTransform:'uppercase'}}> {loc.state.my_caption} </h2>
                     <hr className="linedivider" />
-                    <p>{loc.state.my_question} </p>
-                    {u_image!=="" && <img className="post-image"
+                    <p> {loc.state.my_question} </p>
+                    {u_image !== "" || <img className="post-image"
                         src={u_image}
                         alt="" >
                     </img>}
