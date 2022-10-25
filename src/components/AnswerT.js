@@ -4,7 +4,8 @@ import React, {Component} from 'react' ;
 import { v4  as uuidv4 } from 'uuid' ;
 import firebase from '../firebase/index' ;
 
-
+import Swal from "sweetalert2";
+//import Swal from "sweetalert";
 import { useEffect, useState } from 'react';
 import { app } from '../firebase/index' ;
 
@@ -46,13 +47,21 @@ const AnswerT = (props) => {
     const nav = useNavigate();
     function myAnswer(datapoint){
         if(own_id === u_id){
-            alert("Can't answer your own question ") ;
+            Swal.fire(
+                'OOPS!',
+                "Can't answer your own question",
+                'Ask friends instead...'
+              ) ;
          }else{
             ref.set(datapoint) ;
-            alert("Posted") ;
+            Swal.fire(
+                'Good job!',
+                'You clicked the button!',
+                'success'
+              ) ;
             nav('/allanswers');
          }
-  
+         
     }
 //details as to who answered questions
     return(

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import firebase from '../firebase/index'
 import '../styles/Users.css';
 import { v4  as uuidv4 } from 'uuid' ;
-
+import Swal from "sweetalert2";
 import { app } from '../firebase/index';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
@@ -73,7 +73,12 @@ function UsersT() {
     const ref2 = firebase.firestore().collection('Friends').doc(friend_doc_id) ;
     function handleAddFriend(friend){
         ref2.set(friend)
-        alert("Friend Request Added")
+        Swal.fire({
+            icon: 'success',
+            title: 'ADDED',
+            text: 'New user Added as Friend.',
+            
+          })
     }
 
     return (

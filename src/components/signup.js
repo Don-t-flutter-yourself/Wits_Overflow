@@ -4,7 +4,7 @@ import '../styles/signup.css';
 import { useState } from "react";
 import { v4  as uuidv4 } from 'uuid' ;
 import firebase from '../firebase/index' ;
-
+import Swal from "sweetalert2";
 const Signup = () => {
 
   const { registerUser } = useUserContext();
@@ -24,22 +24,61 @@ const Signup = () => {
   
    function handleSubmit(datapoint){
    // if (emailRef && passwordRef && usernameRef && passwordRef){
-       if(firstnameRef.length < 3){
-        alert(`Name to short`) ;
-       }else if(lastnameRef.length <3){
-        alert(`Surname to short`)
+       if(firstnameRef.length < 2){
+        Swal.fire({
+          icon: 'error',
+          title: 'Check First Name?',
+          text: 'Name too short',
+          footer: '<a href="">Enter name not initials.</a>'
+        });
+       
+       }else if(lastnameRef.length <2){
+        Swal.fire({
+          icon: 'error',
+          title: 'Check Surname ',
+          text: 'Surname to short',
+          footer: '<a href="">Enter name not initials.</a>'
+        });
        }else if(usernameRef.length <3){
-        alert(`Surname to short`)
+        Swal.fire({
+          icon: 'error',
+          title: 'Check Username  ',
+          text: 'Username too short!',
+          footer: '<a href="">please select longer than 3 letters.</a>'
+        });
+        
        }else if(studentNumRef.length < 7){
-        alert(`Student Number should be seven digits`)
+        Swal.fire({
+          icon: 'error',
+          title: 'Check Student Number',
+          text: 'Student Number should be seven digits',
+          footer: '<a href="">Contact admin for further help.</a>'
+        });
+        
        }else if(emailRef !== `${studentNumRef}@students.wits.ac.za`){
-        alert(`Email should be STUDENTNUMBER.students.wits.ac.za`)
+        Swal.fire({
+          icon: 'error',
+          title: 'Check Email Format',
+          text: 'Email should be STUDENTNUMBER.students.wits.ac.za',
+          footer: '<a href="">Register new email with WITS if lacking.</a>'
+        });
+
        }else if(passwordRef < 6 && passwordRef !== confirmPassRef){
-        alert(`Either your password is short or it doesnt match your confirm password`) 
+        Swal.fire({
+          icon: 'error',
+          title: 'Check your password',
+          text: 'Either your password is short or it doesnt match your confirm password!',
+          footer: '<a href="">Reset Password if unsure.</a>'
+        });
        }else{
         registerUser(emailRef, passwordRef, usernameRef);
         ref.set(datapoint)
-        alert("Registered.")
+        Swal.fire({
+          icon: 'success',
+          title: 'Registered',
+          text: 'Your new Account has been created!',
+          footer: '<a href="">You have been automatically logged in.</a>'
+        });
 
        }
   }

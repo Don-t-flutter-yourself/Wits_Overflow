@@ -4,7 +4,7 @@ import firebase from "../firebase/index";
 import '../styles/myPosts.css';
 import { TiTick } from "react-icons/ti";
 import { ImCross } from "react-icons/im";
-
+import Swal from "sweetalert2";
 import { useEffect, useState } from 'react';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { app } from '../firebase/index';
@@ -52,13 +52,23 @@ function MyPostsT() {
     const dif = firebase.firestore().collection("UAnswers");
     function uCorrect(datapoint) {
         dif.doc(datapoint.doc_id).update(datapoint);
-        alert("Marked as correct");
+        Swal.fire({
+            icon: 'success',
+            title: 'Sure?',
+            text: 'Marked as correct!',
+            footer: '<a href="">Response sent to user.</a>'
+          })
     }
     function uNotCorrect(datapoint) {
         dif.doc(datapoint.doc_id).update(datapoint);
-        alert("Marked as incorrect");
+        Swal.fire({
+            icon: 'error',
+            title: 'Sure?',
+            text: 'Marked as incorrect!',
+            footer: '<a href="">Response sent to user.</a>'
+          })
     }
-
+    
     document.body.style.overflow = 'hidden';
 
 

@@ -11,7 +11,7 @@ import {getAuth , onAuthStateChanged} from "firebase/auth" ;
 import { app } from '../firebase/index' ;
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
-
+import Swal from "sweetalert2";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -59,7 +59,12 @@ function PostsT(){
                     console.log(error);
                 },
                 () => {
-                    alert("Loading...")
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'Loading..',
+                        text: 'Hold on as we send the question',
+                        footer: '<a href="">question being loading to website.</a>'
+                      })
                     storage
                         .ref("PostsImages")
                         .child(postimage.name)
@@ -69,7 +74,12 @@ function PostsT(){
                             //console.log(url) 
                             datapoint.u_image = url 
                             ref.set(datapoint) 
-                            alert("Question Posted.")
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Question Posted',
+                                text: 'Your Question has been sent!',
+                                footer: '<a href="">You shall get an answer soon.</a>'
+                              })
                             nav('/myposts')
                             
                             }
@@ -79,7 +89,12 @@ function PostsT(){
 
         }else{
             ref.set(datapoint) 
-            alert("Question Posted.")
+            Swal.fire({
+                icon: 'success',
+                title: 'Question Posted',
+                text: 'Your Question has been sent!',
+                footer: '<a href="">You shall get an answer soon.</a>'
+              })
             nav('/myposts')
 
         }

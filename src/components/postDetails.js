@@ -7,7 +7,7 @@ import firebase from '../firebase/index';
 import { AiFillLike, AiFillDislike } from "react-icons/ai";
 import { app } from '../firebase/index';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-
+import Swal from "sweetalert2";
 
 
 //commented out part of the code to be used in the next sprint
@@ -76,22 +76,42 @@ const PostDetails = (props) => {
     function uUpVote(datapoint){
         rU.doc(datapoint.u_doc_id).update(datapoint);
         setUp(datapoint.u_Upvote) ;
-        alert("Up Voted");
+        Swal.fire({
+            icon: 'info',
+            title: 'LIKED!',
+            text: 'Up voted.',
+            footer: '<a href="">Your vote has been recorded.</a>'
+          });
 
     }
     function uDownVote(datapoint){
         rU.doc(datapoint.u_doc_id).update(datapoint);
         setDown(datapoint.u_Downvote) ;
-        alert("Down Voted");
+        Swal.fire({
+            icon: 'info',
+            title: 'DIS-LIKED!',
+            text: 'Down voted.',
+            footer: '<a href="">Your vote has been recorded.</a>'
+          });
 
     }
 //when user tries to mark their own questions
     function myAnswer(datapoint) {
         if (own_id === u_id) {
-            alert("Can't answer your own question ");
+            Swal.fire({
+                icon: 'warning',
+                title: 'EISH!!',
+                text: "Can't answer your own question",
+                footer: '<a href="">Ask a friend instead.</a>'
+              });
         } else {
             ref.set(datapoint);
-            alert("Posted");
+            Swal.fire({
+                icon: 'success',
+                title: 'THANKS SENSEI!',
+                text: "Answer Posted ",
+                footer: '<a href="">Response has been sent.</a>'
+              });
             setAnswer("")
         }
     }
