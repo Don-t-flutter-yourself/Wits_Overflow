@@ -114,7 +114,7 @@ const Profile = () => {
                             onChange={handleChange}
                         />
                     </div>
-                    {/* {profile.map((myprofile) => (
+                    {profile.map((myprofile) => (
                         <div className="proDetails">
                             <div key={myprofile.users_doc_id}>
 
@@ -131,7 +131,7 @@ const Profile = () => {
                             </div>
                         </div>
 
-                    ))} */}
+                    ))}
                 </div>
 
 
