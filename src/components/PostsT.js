@@ -101,20 +101,6 @@ function PostsT(){
             <h3 className='heading'>Caption</h3>
           <textarea className='captionbox' placeholder="Caption" type="caption"  onChange={(event) => setCaption(event.target.value)} />
         </div>
-        <div>
-            <h3 className='heading'>Question</h3>
-          <textarea className='questionbox' placeholder="Question" type="question" onChange={(event) => setQuestion(event.target.value)} />
-        </div>
-
-        <div className='imageUploader'>
-            <h3 className='heading'>Attachment</h3>
-            <input
-                // style={{display:'none'}}
-                type="file"
-                ref={hiddenFileInput}
-                onChange={handleChange}
-            />
-        </div>
 
         <div>
             <h3 className='heading'>Category<a href='/categories'> (More info) </a> </h3>
@@ -128,6 +114,21 @@ function PostsT(){
                 </div>
                 <div className="col-md-4"></div>
             </div>
+        </div>
+
+        <div>
+            <h3 className='heading'>Question</h3>
+          <textarea className='questionbox' placeholder="Question" type="question" onChange={(event) => setQuestion(event.target.value)} />
+        </div>
+
+        <div className='imageUploader'>
+            <h3 className='heading'>Attachment</h3>
+            <input
+                // style={{display:'none'}}
+                type="file"
+                ref={hiddenFileInput}
+                onChange={handleChange}
+            />
         </div>
        
         <button className='postbtn' type="submit" onClick={() => handleAddPost({u_image:"", u_Upvote:0, u_Downvote:0, u_doc_id, u_caption, u_question,u_username, u_email, u_id, u_created: new Date(), u_category})}>Post</button>
