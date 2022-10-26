@@ -126,7 +126,6 @@ function PostsT(){
 
     const actions = [
         {label: "Software Design", value: 1 },
-        { label: "Software Design", value: 1 },
         { label: "Advanced Analysis of Algorithms", value: 2 },
         { label: "Parallel Computing", value: 3 },
         { label: "Operating Systems", value: 4 },
@@ -178,7 +177,6 @@ function PostsT(){
                 onChange={handleChange}
             />
         </div>
-       {console.log(u_category)}
         <button className='postbtn' type="submit" onClick={() => handleAddPost({u_image:"", u_Upvote:0, u_Downvote:0, u_doc_id, u_caption, u_question,u_username, u_email, u_id, u_created: new Date(), u_category})}>Post</button>
 
     </div>)
