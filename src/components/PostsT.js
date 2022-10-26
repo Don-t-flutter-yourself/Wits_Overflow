@@ -85,8 +85,32 @@ function PostsT(){
                         )
                 }
             )
-
-        }else{
+        }
+        else if(u_caption.length == ' '){
+            Swal.fire({
+              icon: 'error',
+              title: 'Check Caption ',
+              text: 'Enter caption',
+              footer: '<a href="">Enter your caption.</a>'
+            });
+        }
+        else if(u_question.length == ' '){
+            Swal.fire({
+              icon: 'error',
+              title: 'Check Question',
+              text: 'Enter question',
+              footer: '<a href="">Enter your question.</a>'
+            });
+        }
+        else if(u_category == 'React'){
+            Swal.fire({
+              icon: 'error',
+              title: 'Check Category',
+              text: 'Select a category',
+              footer: '<a href="">Select a category.</a>'
+            });
+        }
+        else{
             ref.set(datapoint) 
             Swal.fire({
                 icon: 'success',
@@ -101,6 +125,7 @@ function PostsT(){
     }
 
     const actions = [
+        {label: "Software Design", value: 1 },
         { label: "Software Design", value: 1 },
         { label: "Advanced Analysis of Algorithms", value: 2 },
         { label: "Parallel Computing", value: 3 },
@@ -153,7 +178,7 @@ function PostsT(){
                 onChange={handleChange}
             />
         </div>
-       
+       {console.log(u_category)}
         <button className='postbtn' type="submit" onClick={() => handleAddPost({u_image:"", u_Upvote:0, u_Downvote:0, u_doc_id, u_caption, u_question,u_username, u_email, u_id, u_created: new Date(), u_category})}>Post</button>
 
     </div>)
