@@ -80,7 +80,7 @@ function PostsT(){
                                 text: 'Your Question has been sent!',
                                 footer: '<a href="">You shall get an answer soon.</a>'
                               })
-                            nav('/myposts')
+                            //nav('/myposts')
                             
                             }
                         )
