@@ -94,20 +94,20 @@ function PostsT(){
               footer: '<a href="">Enter your caption.</a>'
             });
         }
-        else if(u_question.length == ' '){
-            Swal.fire({
-              icon: 'error',
-              title: 'Check Question',
-              text: 'Enter question',
-              footer: '<a href="">Enter your question.</a>'
-            });
-        }
         else if(u_category == 'React'){
             Swal.fire({
               icon: 'error',
               title: 'Check Category',
               text: 'Select a category',
               footer: '<a href="">Select a category.</a>'
+            });
+        }
+        else if(u_question.length == ' '){
+            Swal.fire({
+              icon: 'error',
+              title: 'Check Question',
+              text: 'Enter question',
+              footer: '<a href="">Enter your question.</a>'
             });
         }
         else{
@@ -156,7 +156,9 @@ function PostsT(){
                 <div className="col-md-4">
                     <Select options={ actions } components={animatedComps} isSearchable 
                     onChange={(event) => 
-                        setCategory(Array.isArray(event)?event.map(x=>x.label):[])}
+                        setCategory(event.label)
+                        // setCategory(Array.isArray(event)?event.map(x=>x.label):[])
+                    }
                     />
                 </div>
                 <div className="col-md-4"></div>
