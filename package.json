@@ -25,6 +25,7 @@
     "react-icons": "^4.6.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
+    "react-search-autocomplete": "^8.0.0",
     "react-select": "^5.4.0",
     "react-toastify": "^9.0.8",
     "save": "^2.9.0",
