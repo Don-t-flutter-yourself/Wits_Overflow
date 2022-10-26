@@ -5,13 +5,13 @@
 
 .usersTitle{
     text-align: center;
-    padding: 30px;
+    padding: 50px;
     background-color: rgb(0, 33, 65);
     font-family: sans-serif;
     color: white;
     border: none;
     border-radius: 6px 6px 6px 6px;
-    margin-bottom: 30px;
+    margin: 0 70px 70px 40px;
 }
 
 .userImage{
