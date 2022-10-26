@@ -126,7 +126,7 @@ function AllPostsT() {
                             />
                         </div>
 
-                        <div className="searchSort">
+                        {/* <div className="searchSort">
                             <Select placeholder={sortBy} options={sorts}
                                 onChange={(event) => 
                                 //setCategory(Array.isArray(event)?event.map(x=>x.label):[])
@@ -134,15 +134,34 @@ function AllPostsT() {
                                 //handleChange(event)
                                 }
                             />
-                        </div>
+                        </div> */}
                     </div>
 
-                    {posts.filter((post) => {
-                        if (searchQuery == '' && category=="SearchByCategory"){
+                    {category==="SearchByCategory" && posts.filter((post) => {
+                        if (searchQuery === ''){
                             return post
-                        }else if (post.u_question.toLocaleLowerCase().includes(searchQuery.toLocaleLowerCase())){
+                        }
+                        
+                        if (post.u_question.toLocaleLowerCase().includes(searchQuery.toLocaleLowerCase())){
                             return post
-                        }else if (post.u_category === category){
+                        }
+                    })
+                    .map((post) => (
+                        <div className='questionContainer' key={post.u_id}>
+                        <h1 style={{fontFamily: 'sans-serif', textTransform:'uppercase',color:'rgba(125,125,125,1)'}}>{post.u_caption}</h1>
+                        <h4 style={{ marginTop:'10px', fontSize:'22px', color:'rgb(0, 33, 65)'}}>Question </h4>
+                        <p style={{color:'gray'}}>📖 {post.u_category}</p>
+                        <p> {post.u_question}</p>
+                        <button className='allpostsbtn' type="details" variant="contained" color="primary" onClick={() => onPost({u_image: post.u_image, u_Upvote: post.u_Upvote, u_Downvote: post.u_Downvote ,u_doc_id : post.u_doc_id, u_id: post.u_id, u_question: post.u_question, u_caption: post.u_caption, u_email: post.u_email, u_username: post.u_username, u_created: post.u_created })}>
+                            View in detail
+                        </button>
+                        <p>{post.my_time}</p>
+                        <hr className='linedivider'/>
+                        </div>
+                    ))}
+
+                    {category!=="SearchByCategory" && posts.filter((post) => {
+                        if (post.u_category === category){
                             return post
                         }
                     })
