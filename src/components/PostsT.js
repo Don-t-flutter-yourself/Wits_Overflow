@@ -128,7 +128,7 @@ function PostsT(){
         </div>
 
         <div>
-            <h3 className='heading'>Category<a href='/categories'> (More info) </a> </h3>
+            <h3 className='heading'>Category<a href='/categories'> (Descriptions) </a> </h3>
             <div className="row">
                 <div className="col-md-4"></div>
                 <div className="col-md-4">
