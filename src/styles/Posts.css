@@ -43,3 +43,6 @@
 .heading a:hover{
     color: olive;
 }
+.heading a{
+    text-decoration: underline;
+}
