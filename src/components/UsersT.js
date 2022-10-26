@@ -73,6 +73,10 @@ function UsersT() {
     const ref2 = firebase.firestore().collection('Friends').doc(friend_doc_id) ;
     function handleAddFriend(friend){
         ref2.set(friend)
+        // user.u_friends = friend.requestedBy_Email
+        // ref.doc(user.users_doc_id).update(user) 
+
+        // alert("Friend Request Added")
         Swal.fire({
             icon: 'success',
             title: 'ADDED',
