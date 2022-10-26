@@ -67,7 +67,7 @@ function UsersT() {
                     {allUsers.map((user) => (
 
                         <div key={user.studentNumRef}>
-                            {user.u_id && <div className='userBox'>
+                            {user.u_friends!==requestedBy_Email && <div className='userBox'>
                                 <img className='userImage'
                                     src="https://th.bing.com/th/id/R.77f5794e2eb49f7989b8f85e92cfa4e0?rik=FPingw5xw%2fAHXA&pid=ImgRaw&r=0"
                                 />
@@ -83,7 +83,7 @@ function UsersT() {
                                     > Add Friend </button>
                             </div>}
 
-                            {!user.u_id && <div className='userBox'>
+                            {user.u_friends===requestedBy_Email && <div className='userBox'>
                                 <img className='userImage'
                                     src="https://th.bing.com/th/id/R.77f5794e2eb49f7989b8f85e92cfa4e0?rik=FPingw5xw%2fAHXA&pid=ImgRaw&r=0"
                                 />
