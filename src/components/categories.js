@@ -39,21 +39,36 @@ const Categories = () => {
       querySnapshot.forEach((doc) => {
         items.push(doc.data());
       });
-      // console.log(items)
+      // console.log('length: ', items.length)
       setCategories(items)
     });
   }
 
   const setCategories = (postsList) => {
+    var SDArr = []
+    var AAAArr = []
+    var PCArr = []
+    var OSArr = []
+    var CGVArr = []
+    var MLArr = []
+    var FLAArr = []
+
     for (var i = 0; i < postsList.length; ++i) {
-      if (postsList[i].u_category === "Software Design") setSD([...SD, postsList[i]])
-      else if (postsList[i].u_category === "Advanced Analysis of Algorithms") setAAA([...AAA, postsList[i]])
-      else if (postsList[i].u_category === "Parallel Computing") setPC([...PC, postsList[i]])
-      else if (postsList[i].u_category === "Operating Systems") setOS([...OS, postsList[i]])
-      else if (postsList[i].u_category === "Computer Graphics and Visualization") setCGV([...CGV, postsList[i]])
-      else if (postsList[i].u_category === "Machine Learning") setML([...ML, postsList[i]])
-      else if (postsList[i].u_category === "Formal Languages and Automata") setFLA([...FLA, postsList[i]])
+      if (postsList[i].u_category === "Software Design") SDArr.push(postsList[i])
+      else if (postsList[i].u_category === "Advanced Analysis of Algorithms") AAAArr.push(postsList[i])
+      else if (postsList[i].u_category === "Parallel Computing") PCArr.push(postsList[i])
+      else if (postsList[i].u_category === "Operating Systems") OSArr.push(postsList[i])
+      else if (postsList[i].u_category === "Computer Graphics and Visualization") CGVArr.push(postsList[i])
+      else if (postsList[i].u_category === "Machine Learning") MLArr.push(postsList[i])
+      else if (postsList[i].u_category === "Formal Languages and Automata") FLAArr.push(postsList[i])
     }
+    setSD(SDArr)
+    setAAA(AAAArr)
+    setPC(PCArr)
+    setOS(OSArr)
+    setCGV(CGVArr)
+    setML(MLArr)
+    setPC(FLAArr)
   }
 
   useEffect(() => { AllPosts() }, []);
@@ -94,19 +109,19 @@ const Categories = () => {
         {categories.map((cat) => (
           <div className='categoryBox'>
             <h2 style={{ color: 'rgb(0, 33, 65)', marginTop: '20px', textTransform: 'uppercase' }}>{cat.Category}:</h2>
-            <p style={{color:"rgba(125,135,125,1)"}}>{cat.Description} </p>
+            <p style={{ color: "rgba(125,135,125,1)" }}>{cat.Description} </p>
             <hr className="linedivider" />
             <button className='expandbtn' onClick={() => Expanded(cat.Category)}>Expand</button>
             <div style={{ marginLeft: '50px' }}>
               {OSView && cat.Category === "Operating Systems" && OS.length > 0 && OS.map((post) => (
                 <div className='catQuestionContainer' key={post.u_id}>
-                <h3 style={{ fontFamily: 'sans-serif', textTransform: 'uppercase', color: 'rgb(0, 33, 65)' }}>{post.u_caption}</h3>
-                <h4 > Question: </h4>
-                <p style={{ color: 'white' }}> {post.u_question} </p>
-                <button className='catPostsbtn' type="details" variant="contained" color="primary" onClick={() => onPost({ u_image: post.u_image, u_Upvote: post.u_Upvote, u_Downvote: post.u_Downvote, u_doc_id: post.u_doc_id, u_id: post.u_id, u_question: post.u_question, u_caption: post.u_caption, u_email: post.u_email, u_username: post.u_username, u_created: post.u_created })}>
-                  View in detail
-                </button>
-              </div>
+                  <h3 style={{ fontFamily: 'sans-serif', textTransform: 'uppercase', color: 'rgb(0, 33, 65)' }}>{post.u_caption}</h3>
+                  <h4 > Question: </h4>
+                  <p style={{ color: 'white' }}> {post.u_question} </p>
+                  <button className='catPostsbtn' type="details" variant="contained" color="primary" onClick={() => onPost({ u_image: post.u_image, u_Upvote: post.u_Upvote, u_Downvote: post.u_Downvote, u_doc_id: post.u_doc_id, u_id: post.u_id, u_question: post.u_question, u_caption: post.u_caption, u_email: post.u_email, u_username: post.u_username, u_created: post.u_created })}>
+                    View in detail
+                  </button>
+                </div>
               ))}
               {SDView && cat.Category === "Software Design" && SD.length > 0 && SD.map((post) => (
                 <div className='catQuestionContainer' key={post.u_id}>
@@ -120,53 +135,53 @@ const Categories = () => {
               ))}
               {AAAView && cat.Category === "Advanced Analysis of Algorithms" && AAA.length > 0 && AAA.map((post) => (
                 <div className='catQuestionContainer' key={post.u_id}>
-                <h3 style={{ fontFamily: 'sans-serif', textTransform: 'uppercase', color: 'rgb(0, 33, 65)' }}>{post.u_caption}</h3>
-                <h4 > Question: </h4>
-                <p style={{ color: 'white' }}> {post.u_question} </p>
-                <button className='catPostsbtn' type="details" variant="contained" color="primary" onClick={() => onPost({ u_image: post.u_image, u_Upvote: post.u_Upvote, u_Downvote: post.u_Downvote, u_doc_id: post.u_doc_id, u_id: post.u_id, u_question: post.u_question, u_caption: post.u_caption, u_email: post.u_email, u_username: post.u_username, u_created: post.u_created })}>
-                  View in detail
-                </button>
-              </div>
+                  <h3 style={{ fontFamily: 'sans-serif', textTransform: 'uppercase', color: 'rgb(0, 33, 65)' }}>{post.u_caption}</h3>
+                  <h4 > Question: </h4>
+                  <p style={{ color: 'white' }}> {post.u_question} </p>
+                  <button className='catPostsbtn' type="details" variant="contained" color="primary" onClick={() => onPost({ u_image: post.u_image, u_Upvote: post.u_Upvote, u_Downvote: post.u_Downvote, u_doc_id: post.u_doc_id, u_id: post.u_id, u_question: post.u_question, u_caption: post.u_caption, u_email: post.u_email, u_username: post.u_username, u_created: post.u_created })}>
+                    View in detail
+                  </button>
+                </div>
               ))}
               {PCView && cat.Category === "Parallel Computing" && PC.length > 0 && PC.map((post) => (
                 <div className='catQuestionContainer' key={post.u_id}>
-                <h3 style={{ fontFamily: 'sans-serif', textTransform: 'uppercase', color: 'rgb(0, 33, 65)' }}>{post.u_caption}</h3>
-                <h4 > Question: </h4>
-                <p style={{ color: 'white' }}> {post.u_question} </p>
-                <button className='catPostsbtn' type="details" variant="contained" color="primary" onClick={() => onPost({ u_image: post.u_image, u_Upvote: post.u_Upvote, u_Downvote: post.u_Downvote, u_doc_id: post.u_doc_id, u_id: post.u_id, u_question: post.u_question, u_caption: post.u_caption, u_email: post.u_email, u_username: post.u_username, u_created: post.u_created })}>
-                  View in detail
-                </button>
-              </div>
+                  <h3 style={{ fontFamily: 'sans-serif', textTransform: 'uppercase', color: 'rgb(0, 33, 65)' }}>{post.u_caption}</h3>
+                  <h4 > Question: </h4>
+                  <p style={{ color: 'white' }}> {post.u_question} </p>
+                  <button className='catPostsbtn' type="details" variant="contained" color="primary" onClick={() => onPost({ u_image: post.u_image, u_Upvote: post.u_Upvote, u_Downvote: post.u_Downvote, u_doc_id: post.u_doc_id, u_id: post.u_id, u_question: post.u_question, u_caption: post.u_caption, u_email: post.u_email, u_username: post.u_username, u_created: post.u_created })}>
+                    View in detail
+                  </button>
+                </div>
               ))}
               {CGVView && cat.Category === "Computer Graphics and Visualization" && CGV.length > 0 && CGV.map((post) => (
                 <div className='catQuestionContainer' key={post.u_id}>
-                <h3 style={{ fontFamily: 'sans-serif', textTransform: 'uppercase', color: 'rgb(0, 33, 65)' }}>{post.u_caption}</h3>
-                <h4 > Question: </h4>
-                <p style={{ color: 'white' }}> {post.u_question} </p>
-                <button className='catPostsbtn' type="details" variant="contained" color="primary" onClick={() => onPost({ u_image: post.u_image, u_Upvote: post.u_Upvote, u_Downvote: post.u_Downvote, u_doc_id: post.u_doc_id, u_id: post.u_id, u_question: post.u_question, u_caption: post.u_caption, u_email: post.u_email, u_username: post.u_username, u_created: post.u_created })}>
-                  View in detail
-                </button>
-              </div>
+                  <h3 style={{ fontFamily: 'sans-serif', textTransform: 'uppercase', color: 'rgb(0, 33, 65)' }}>{post.u_caption}</h3>
+                  <h4 > Question: </h4>
+                  <p style={{ color: 'white' }}> {post.u_question} </p>
+                  <button className='catPostsbtn' type="details" variant="contained" color="primary" onClick={() => onPost({ u_image: post.u_image, u_Upvote: post.u_Upvote, u_Downvote: post.u_Downvote, u_doc_id: post.u_doc_id, u_id: post.u_id, u_question: post.u_question, u_caption: post.u_caption, u_email: post.u_email, u_username: post.u_username, u_created: post.u_created })}>
+                    View in detail
+                  </button>
+                </div>
               ))}
               {MLView && cat.Category === "Machine Learning" && ML.length > 0 && ML.map((post) => (
                 <div className='catQuestionContainer' key={post.u_id}>
-                <h3 style={{ fontFamily: 'sans-serif', textTransform: 'uppercase', color: 'rgb(0, 33, 65)' }}>{post.u_caption}</h3>
-                <h4 > Question: </h4>
-                <p style={{ color: 'white' }}> {post.u_question} </p>
-                <button className='catPostsbtn' type="details" variant="contained" color="primary" onClick={() => onPost({ u_image: post.u_image, u_Upvote: post.u_Upvote, u_Downvote: post.u_Downvote, u_doc_id: post.u_doc_id, u_id: post.u_id, u_question: post.u_question, u_caption: post.u_caption, u_email: post.u_email, u_username: post.u_username, u_created: post.u_created })}>
-                  View in detail
-                </button>
-              </div>
+                  <h3 style={{ fontFamily: 'sans-serif', textTransform: 'uppercase', color: 'rgb(0, 33, 65)' }}>{post.u_caption}</h3>
+                  <h4 > Question: </h4>
+                  <p style={{ color: 'white' }}> {post.u_question} </p>
+                  <button className='catPostsbtn' type="details" variant="contained" color="primary" onClick={() => onPost({ u_image: post.u_image, u_Upvote: post.u_Upvote, u_Downvote: post.u_Downvote, u_doc_id: post.u_doc_id, u_id: post.u_id, u_question: post.u_question, u_caption: post.u_caption, u_email: post.u_email, u_username: post.u_username, u_created: post.u_created })}>
+                    View in detail
+                  </button>
+                </div>
               ))}
               {FLAView && cat.Category === "Formal Languages and Automata" && FLA.length > 0 && FLA.map((post) => (
                 <div className='catQuestionContainer' key={post.u_id}>
-                <h3 style={{ fontFamily: 'sans-serif', textTransform: 'uppercase', color: 'rgb(0, 33, 65)' }}>{post.u_caption}</h3>
-                <h4 > Question: </h4>
-                <p style={{ color: 'white' }}> {post.u_question} </p>
-                <button className='catPostsbtn' type="details" variant="contained" color="primary" onClick={() => onPost({ u_image: post.u_image, u_Upvote: post.u_Upvote, u_Downvote: post.u_Downvote, u_doc_id: post.u_doc_id, u_id: post.u_id, u_question: post.u_question, u_caption: post.u_caption, u_email: post.u_email, u_username: post.u_username, u_created: post.u_created })}>
-                  View in detail
-                </button>
-              </div>
+                  <h3 style={{ fontFamily: 'sans-serif', textTransform: 'uppercase', color: 'rgb(0, 33, 65)' }}>{post.u_caption}</h3>
+                  <h4 > Question: </h4>
+                  <p style={{ color: 'white' }}> {post.u_question} </p>
+                  <button className='catPostsbtn' type="details" variant="contained" color="primary" onClick={() => onPost({ u_image: post.u_image, u_Upvote: post.u_Upvote, u_Downvote: post.u_Downvote, u_doc_id: post.u_doc_id, u_id: post.u_id, u_question: post.u_question, u_caption: post.u_caption, u_email: post.u_email, u_username: post.u_username, u_created: post.u_created })}>
+                    View in detail
+                  </button>
+                </div>
               ))}
             </div>
 
