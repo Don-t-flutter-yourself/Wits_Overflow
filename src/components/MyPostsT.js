@@ -68,9 +68,6 @@ function MyPostsT() {
             footer: '<a href="">Response sent to user.</a>'
           })
     }
-    
-    document.body.style.overflow = 'hidden';
-
 
     
 //function for marking of answer using a correct or incorrect button

@@ -75,13 +75,12 @@ function AllPostsT() {
 
     const categories = [
         { label: "Software Design", value: 1 },
-        { label: "Software Design Project", value: 2 },
-        { label: "Advanced Analysis of Algorithms", value: 3 },
-        { label: "Parallel Computing", value: 4 },
-        { label: "Operating Systems", value: 5 },
-        { label: "Computer Graphics and Visualization", value: 6 },
-        { label: "Machine Learning", value: 7 },
-        { label: "Formal Languages and Automata", value: 8 }
+        { label: "Advanced Analysis of Algorithms", value: 2 },
+        { label: "Parallel Computing", value: 3 },
+        { label: "Operating Systems", value: 4 },
+        { label: "Computer Graphics and Visualization", value: 5 },
+        { label: "Machine Learning", value: 6 },
+        { label: "Formal Languages and Automata", value: 7 }
     ];
 
     const sorts = [

@@ -124,7 +124,7 @@ const Profile = () => {
                                     <span style={{ fontWeight: 'bold', marginRight: '100px' }}> Date created: {new Date(myprofile.u_created.seconds * 1000).toLocaleDateString()}</span>
                                     <span style={{ fontWeight: 'bold' }}> Time created: {new Date(myprofile.u_created.seconds * 1000).toLocaleTimeString()}</span>
                                 </div>
-                                <button className="btn">Submit</button>
+                                {/* <button className="btn">Submit</button> */}
                             </div>
                         </div>
 

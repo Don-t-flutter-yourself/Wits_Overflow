@@ -5,6 +5,6 @@ import MyDashboard from './MyDashboard';
 
 
 test('renders the mydash', () => {
-  render(<MyDashboard />);
+  render(MyDashboard );
   
 });
