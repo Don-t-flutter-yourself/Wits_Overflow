@@ -12,8 +12,8 @@ function UsersT() {
     const [allUsers, setUsers] = useState([]);
     const ref = firebase.firestore().collection("Users");
 
-    const [myFriends, setFriends] = useState([]);
-    const refF = firebase.firestore().collection("Friends");
+    // const [myFriends, setFriends] = useState([]);
+    // const refF = firebase.firestore().collection("Friends");
 
     const [requestedBy_Email, setMyemail] = useState('');
     const [requestedBy_id, setMyId] = useState('');
@@ -43,44 +43,19 @@ function UsersT() {
         AllUsers();
     });
 
-    function myFirends() {
-        refF.where('requestedBy_Email', '==', requestedBy_Email).onSnapshot((querySnapshot) => {
-            const items = [];
-            querySnapshot.forEach((doc) => {
-                items.push(doc.data());
-            });
-            setFriends(items);
-        })
-    }
-
-    useEffect(() => {
-        myFirends();
-    });
-
-    console.log(myFriends.length)
-
-    for (let i=0; i<myFriends.length; ++i){
-        for (let j=0; j<allUsers.length; ++j){
-            if (myFriends[i].requestTo_STN === allUsers[j].studentNumRef){
-                allUsers[j].u_id = "true";
-            }else{
-                allUsers[j].u_id = "false"; 
-            }
-        }
-    }
-
     const friend_doc_id = uuidv4() ;
     const ref2 = firebase.firestore().collection('Friends').doc(friend_doc_id) ;
-    function handleAddFriend(friend){
+    function handleAddFriend(friend,user){
         ref2.set(friend)
-        // user.u_friends = friend.requestedBy_Email
-        // ref.doc(user.users_doc_id).update(user) 
+        user.u_friends = friend.requestedBy_Email
+        ref.doc(user.users_doc_id).update(user) 
 
         // alert("Friend Request Added")
         Swal.fire({
             icon: 'success',
             title: 'ADDED',
             text: 'New user Added as Friend.',
+            
           })
     }
 
@@ -101,7 +76,11 @@ function UsersT() {
                                     <h4 className='firstN'>{user.firstnameRef} {user.lastnameRef} </h4>
                                     <h4 className='studentN'>{user.studentNumRef}</h4>
                                 </div>
-                                <button className='friendbtn' onClick={() => handleAddFriend({requestedBy_Email, requestedBy_id, requestTo_u_id: user.u_id, requestTo_name: user.firstnameRef, requestTo_STN: user.studentNumRef, requestTo_Username: user.usernameRef})}> Add Friend </button>
+                                <button className='friendbtn' onClick={() => handleAddFriend({requestedBy_Email, requestedBy_id, requestTo_u_id: user.u_id, requestTo_name: user.firstnameRef, requestTo_STN: user.studentNumRef, requestTo_Username: user.usernameRef},
+                                    {users_doc_id: user.users_doc_id, emailRef: user.emailRef, firstnameRef: user.firstnameRef, lastnameRef: user.lastnameRef, passwordRef: user.passwordRef, studentNum: user.studentNumRef, u_created: user.u_created, u_id: user.u_id,
+                                        u_image: user.u_image, usernameRef: user.usernameRef, u_friends: user.u_friends}
+                                    )}
+                                    > Add Friend </button>
                             </div>}
 
                             {!user.u_id && <div className='userBox'>
