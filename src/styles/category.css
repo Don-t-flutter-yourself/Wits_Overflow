@@ -54,3 +54,31 @@
     font-weight: bold;
     /* font-size: 14px; */
 }
+
+.todaybtn
+{
+    /* width: 150px; */
+    background-color: goldenrod;
+    border: none;
+    color: rgb(0, 33, 65);
+    padding: 10px;
+    margin-left: 20px;
+    box-shadow: 0 1px 6px #ccc;
+    border-radius: 6px;
+    font-weight: bold;
+    /* font-size: 14px; */
+}
+
+.popularbtn
+{
+    /* width: 150px; */
+    background-color: goldenrod;
+    border: none;
+    color: rgb(0, 33, 65);
+    padding: 10px;
+    margin-left: 20px ;
+    box-shadow: 0 1px 6px #ccc;
+    border-radius: 6px;
+    font-weight: bold;
+    /* font-size: 14px; */
+}

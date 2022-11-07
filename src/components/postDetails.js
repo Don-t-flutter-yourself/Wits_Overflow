@@ -142,7 +142,8 @@ const PostDetails = (props) => {
                     <br/>
                     <button className="likebtn" onClick={() => uUpVote({u_Downvote:loc.state.my_DownVote , u_Upvote:loc.state.my_UpVote+1 , u_caption:loc.state.my_caption , u_created:loc.state.my_time , u_doc_id:loc.state.my_u_doc_id , u_email:loc.state.my_email, u_id:loc.state.my_uid, u_question:loc.state.my_question, u_username:loc.state.my_username})}>
                         <AiFillLike size={25} color={"#F5F5F5"}/>
-                        <h5>{up}</h5>
+                       <h5>{up}</h5> 
+                      <h5></h5>
                     </button>
                     <button className="dislikebtn" onClick={() => uDownVote({u_Downvote:loc.state.my_DownVote+1 , u_Upvote:loc.state.my_UpVote , u_caption:loc.state.my_caption , u_created:loc.state.my_time , u_doc_id:loc.state.my_u_doc_id , u_email:loc.state.my_email, u_id:loc.state.my_uid, u_question:loc.state.my_question, u_username:loc.state.my_username})}>
                         <AiFillDislike size={25} color={"#F5F5F5"}/> 
