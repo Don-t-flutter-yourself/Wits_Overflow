@@ -299,7 +299,7 @@ const Categories = () => {
             <h2 style={{ color: 'rgb(0, 33, 65)', marginTop: '20px', textTransform: 'uppercase' }}>{cat.Category}:</h2>
             <p style={{ color: "rgba(125,135,125,1)" }}>{cat.Description} </p>
             <hr className="linedivider" />
-            <button className='expandbtn' onClick={() => Expanded(cat.Category)}>Expand</button>
+            <button className='expandbtn' onClick={() => Expanded(cat.Category)}>All</button>
             <button className='popularbtn' onClick={() => Popular(cat.Category)}>Popular</button>
             <button className='todaybtn' onClick={() => Today(cat.Category)} >Today</button>
             <div style={{ marginLeft: '50px' }}>
