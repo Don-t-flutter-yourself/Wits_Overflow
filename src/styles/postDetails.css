@@ -24,6 +24,13 @@
     display: flex;
 }
 
+.answer-image{
+    width: 800px;
+    margin-top: 20px;
+    border-width: 2px;
+    border-color: rgb(0, 33, 65);
+}
+
 .userA, .Adate, .ATime{
     display: flex;
     height: 20px;
