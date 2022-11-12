@@ -11,6 +11,7 @@ const auth = getAuth(app);
 function UsersT() {
     const [allUsers, setUsers] = useState([]);
     const ref = firebase.firestore().collection("Users");
+    const [searchQuery, setSearch] = useState('');
 
     // const [myFriends, setFriends] = useState([]);
     // const refF = firebase.firestore().collection("Friends");
@@ -64,7 +65,19 @@ function UsersT() {
             <section>
                 <div className='usersPage'>
                     <h2 className='usersTitle'>All Users</h2>
-                    {allUsers.map((user) => (
+                    <div className="userSearch">
+                        <input placeholder="Search user" type="text" onChange={(e) => setSearch(e.target.value)} value={searchQuery} />
+                    </div>
+                    {allUsers.filter((user) => {
+                        if (searchQuery === '') {
+                            return user
+                        }
+
+                        if (user.studentNumRef.toLocaleLowerCase().includes(searchQuery.toLocaleLowerCase())) {
+                            return user
+                        }
+                    })
+                    .map((user) => (
 
                         <div key={user.studentNumRef}>
                             {user.u_friends!==requestedBy_Email && <div className='userBox'>
