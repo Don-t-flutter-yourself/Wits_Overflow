@@ -11,7 +11,7 @@
     color: white;
     border: none;
     border-radius: 6px 6px 6px 6px;
-    margin: 0 70px 70px 40px;
+    margin: 0 70px 30px 40px;
 }
 
 .userImage{
@@ -42,6 +42,10 @@
     right: 13%;
     margin: 2%;
 
+}
+
+.userSearch{
+    margin: 0 0 2% 2.5%;
 }
 
 .userBox{

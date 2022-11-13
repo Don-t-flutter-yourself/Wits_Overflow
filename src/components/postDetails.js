@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import firebase from '../firebase/index';
+import { storage } from '../firebase/index';
 import { AiFillLike, AiFillDislike } from "react-icons/ai";
 import { app } from '../firebase/index';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
@@ -30,6 +31,7 @@ const PostDetails = (props) => {
     //const [u_date, setDate] = useState("");
     const [own_id, setOwnId] = useState('');
     const [u_image, setImage] = useState();
+    const [postimage, setSelectedImage] = useState('');
 
     const [u_answeredby, setName] = useState('');
 
@@ -95,8 +97,11 @@ const PostDetails = (props) => {
           });
 
     }
+
+    var inputFileName = document.getElementById("imageFile");
 //when user tries to mark their own questions
     function myAnswer(datapoint) {
+        const uploadT = storage.ref(`PostsImages/${postimage.name}`).put(postimage);
         if (own_id === u_id) {
             Swal.fire({
                 icon: 'warning',
@@ -104,14 +109,61 @@ const PostDetails = (props) => {
                 text: "Can't answer your own question",
                 footer: '<a href="">Ask a friend instead.</a>'
               });
-        } else {
+        }
+        if (u_answer === '') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Check Answer ',
+                text: 'Enter Answer',
+                footer: '<a href="">Enter your answer.</a>'
+            });
+        }
+        else if(postimage !== ''){
+            uploadT.on(
+                "state_changed",
+                snapshot => {},
+                error => {
+                    console.log(error);
+                },
+                () => {
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'Loading..',
+                        text: 'Hold on as we send your answer',
+                        footer: '<a href="">answer being loading to website.</a>'
+                      })
+                    storage
+                        .ref("PostsImages")
+                        .child(postimage.name)
+                        .getDownloadURL()
+                        .then(url => {
+                            //setUrl(url)
+                            //console.log(url) 
+                            datapoint.u_answerImg = url 
+                            ref.set(datapoint) 
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Answer Posted',
+                                text: 'Your Answer has been sent!',
+                                footer: '<a href="">Response has been sent.</a>'
+                            })
+                            //nav('/myposts')
+                            
+                        }
+                    )
+                }
+            )
+            setAnswer("")
+            inputFileName.value = "";
+        }
+        else {
             ref.set(datapoint);
             Swal.fire({
                 icon: 'success',
                 title: 'THANKS SENSEI!',
                 text: "Answer Posted ",
                 footer: '<a href="">Response has been sent.</a>'
-              });
+            });
             setAnswer("")
         }
     }
@@ -120,6 +172,11 @@ const PostDetails = (props) => {
 
     const loc = useLocation();
 
+    const hiddenFileInput = React.useRef(null);
+
+    const handleChange = event => {
+        setSelectedImage(event.target.files[0]);
+    };
 
     //user function to return post details
     return (
@@ -164,6 +221,10 @@ const PostDetails = (props) => {
                     <div>
                         {pulled_answers.map((ans) => (
            <div>
+            {ans.u_answerImg !== "" && <img className="answer-image"
+                        src={ans.u_answerImg}
+                        alt="" >
+            </img>}
            <p className="answercontainer">
                {ans.u_answer}
            </p>
@@ -193,7 +254,16 @@ const PostDetails = (props) => {
                             setAnswer(event.target.value);
 
                         }} />
-                        <button className="answerbtn" type="submit" onClick={() => myAnswer({ u_id, doc_id, u_username, u_email, u_caption, u_question, u_answer, u_correct: "Not Yet Marked", u_date : new Date(), u_answeredby })} >Answer</button>
+                        <div className='imageUploader'>
+                            <h3 className='heading'>Attachment</h3>
+                            <input
+                                type="file"
+                                id="imageFile"
+                                ref={hiddenFileInput}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <button className="answerbtn" type="submit" onClick={() => myAnswer({u_answerImg:"", u_id, doc_id, u_username, u_email, u_caption, u_question, u_answer, u_correct: "Not Yet Marked", u_date : new Date(), u_answeredby })} >Answer</button>
                     </div>
                 </div>
             </section>
