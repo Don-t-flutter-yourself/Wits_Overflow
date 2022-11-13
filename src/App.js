@@ -16,7 +16,7 @@ import AnswerT from "./components/AnswerT";
 import ATP from "./components/ATP";
 import MyDashboard from "./components/MyDashboard";
 import Categories from "./components/categories";
-
+import { ProgressBar } from 'loading-animations-react'
 
 // import Signin from "./components/signin";
 // import Signup from "./components/signup";
@@ -28,8 +28,10 @@ function App() {
   return (
     <div className="App">
       {error && <p className="error">{error}</p>}
-      {loading ? <h2>Loading...</h2> : <> {user ? <Dashboard /> : <Auth />} </>}
-       
+      {loading ?  <ProgressBar
+  borderColor="rgb(0, 33, 65)"
+  sliderColor="#fff"
+  sliderBackground="rgb(0, 33, 65)"/> : <> {user ? <Dashboard /> : <Auth />} </>}
      
       <BrowserRouter>
       <Routes>
