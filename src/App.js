@@ -35,8 +35,6 @@ function App() {
      
       <BrowserRouter>
       <Routes>
-        {/* <Route path="/" element={<Signin/>}/>
-        <Route path="/signup" element={<Signup/>}/> */}
         <Route path="/createposts" element={<PostsT/>}/>
         <Route path="/posts" element={<AllPostsT/>}/>
         {/* if you render the path of the dashboard it appears twice*/}
