@@ -17,7 +17,7 @@ const auth = getAuth(app)
 const PostDetails = (props) => {
 
     const doc_id = uuidv4();
-
+//gettting answers from the database
     const ref = firebase.firestore().collection('UAnswers').doc(doc_id);
 
     const [_user, setUser] = useState();
