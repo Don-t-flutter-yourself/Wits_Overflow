@@ -65,7 +65,7 @@ function PostsT() {
                         footer: '<a href="">question being loading to website.</a>'
                     })
                     storage
-                        .ref("PostsImages")
+                        .ref("PostsImages")//image uploading
                         .child(postimage.name)
                         .getDownloadURL()
                         .then(url => {
@@ -88,7 +88,7 @@ function PostsT() {
         }
         else if (u_caption.length == ' ') {
             Swal.fire({
-                icon: 'error',
+                icon: 'error', // caption f your question
                 title: 'Check Caption ',
                 text: 'Enter caption',
                 footer: '<a href="">Enter your caption.</a>'
@@ -96,7 +96,7 @@ function PostsT() {
         }
         else if (u_category == 'React') {
             Swal.fire({
-                icon: 'error',
+                icon: 'error', //selecting the categotry
                 title: 'Check Category',
                 text: 'Select a category',
                 footer: '<a href="">Select a category.</a>'
@@ -105,7 +105,7 @@ function PostsT() {
         else if (u_question.length == ' ') {
             Swal.fire({
                 icon: 'error',
-                title: 'Check Question',
+                title: 'Check Question',//used when a user is typing a question
                 text: 'Enter question',
                 footer: '<a href="">Enter your question.</a>'
             });
@@ -114,7 +114,7 @@ function PostsT() {
             ref.set(datapoint)
             Swal.fire({
                 icon: 'success',
-                title: 'Question Posted',
+                title: 'Question Posted',//When a user posts a question
                 text: 'Your Question has been sent!',
                 footer: '<a href="">You shall get an answer soon.</a>'
             })
@@ -123,7 +123,7 @@ function PostsT() {
         }
 
     }
-
+//categories users choose from
     const actions = [
         { label: "Software Design", value: 1 },
         { label: "Advanced Analysis of Algorithms", value: 2 },
@@ -140,7 +140,7 @@ function PostsT() {
         setSelectedImage(event.target.files[0]);
     };
 
-
+//return page setup with textbox, buttons, etc
     return (
         <div>
             <h1 className='postQTitle'>Post Question</h1>
