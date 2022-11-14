@@ -7,7 +7,7 @@ import { app } from '../firebase/index';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const auth = getAuth(app);
-
+//function to get users from database
 function UsersT() {
     const [allUsers, setUsers] = useState([]);
     const ref = firebase.firestore().collection("Users");
@@ -29,7 +29,7 @@ function UsersT() {
             }
         })
     }, []);
-
+//getting all users
     function AllUsers() {
         ref.where('emailRef', '!=', requestedBy_Email).onSnapshot((querySnapshot) => {
             const items = [];
@@ -43,7 +43,7 @@ function UsersT() {
     useEffect(() => {
         AllUsers();
     });
-
+//friend function to get your added friends from database when requesting
     const friend_doc_id = uuidv4() ;
     const ref2 = firebase.firestore().collection('Friends').doc(friend_doc_id) ;
     function handleAddFriend(friend,user){
@@ -59,7 +59,7 @@ function UsersT() {
             
           })
     }
-
+//return user page with search for users implemented
     return (
         <React.Fragment>
             <section>
