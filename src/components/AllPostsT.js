@@ -100,7 +100,7 @@ function AllPostsT() {
     const handleChange = (e) => {
         console.log(e.label)
     }
-
+//Page structure, text fileds and buttons
     return (
         <React.Fragment>
             <section className="details">
