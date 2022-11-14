@@ -106,6 +106,7 @@ function AllPostsT() {
             <section className="details">
                 <div className='sideBlock'>
                    <button className='posbtn' onClick={() => nav('/createposts')}>Create Post</button>
+                   <a href='/admin'>MODERATE POSTS</a>
                 </div>
                 <div className='postsPage'>
                     <h2 className='postsTitle'>ALL POSTS</h2>

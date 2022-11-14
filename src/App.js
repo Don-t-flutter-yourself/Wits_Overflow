@@ -16,6 +16,8 @@ import AnswerT from "./components/AnswerT";
 import ATP from "./components/ATP";
 import MyDashboard from "./components/MyDashboard";
 import Categories from "./components/categories";
+import Admin from "./components/admin";
+import AdminDelete from "./components/adminDelete";
 
 
 // import Signin from "./components/signin";
@@ -47,6 +49,8 @@ function App() {
         <Route path="/allanswers" element={<ATP/>}/> 
         <Route path="/mydashboard" element={<MyDashboard/>}/>
         <Route path="/categories" element={<Categories/>}/>
+        <Route path="/admin" element={<Admin/>}/>
+        <Route path="/adminDelete" element={<AdminDelete/>}/>
       </Routes>
       </BrowserRouter>
  

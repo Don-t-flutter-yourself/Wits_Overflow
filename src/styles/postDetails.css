@@ -111,3 +111,44 @@
     border-width: 2px;
     border-color: rgb(0, 33, 65);
 }
+.delbtn{
+    width: 300px;
+    background-color: rgb(0, 33, 65);
+    border: none;
+    color: white;
+    padding: 12px;
+    margin: 15px 0px 15px 0px;
+    box-shadow: 0 1px 6px #ccc;
+    border-radius: 6px;
+    font-size: 18px;
+}
+.delAns{
+    width: 200px;
+    background-color: rgb(0, 33, 65);
+    border: none;
+    color: white;
+    padding: 12px;
+    margin: 5px 0px 5px 0px;
+    box-shadow: 0 1px 6px #ccc;
+    border-radius: 6px;
+    font-size: 18px;
+}
+.uAns, .ansDate, .ansTime{
+    display: flex;
+    height: 20px;
+    width: 200px;
+    text-align: left;
+    font-size: 13px;
+    color: rgb(0, 33, 65);
+}
+.backbtn{
+    width: 300px;
+    background-color: rgb(0, 33, 65);
+    border: none;
+    color: white;
+    padding: 12px;
+    margin: 35px 0 0 5px;
+    box-shadow: 0 1px 6px #ccc;
+    border-radius: 6px;
+    font-size: 18px;
+}
