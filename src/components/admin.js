@@ -92,7 +92,7 @@ function Admin() {
                    <button className='posbtn' onClick={() => nav(-1)}>Back</button>
                 </div>
                 <div className='postsPage'>
-                    <h2 className='postsTitle'>MOST DISLIKED POSTS</h2>
+                    <h2 className='postsTitle'>POSTS</h2>
 
                     <div className="search">
                         <input className="searchinput" placeholder="search post" type="text" onChange={(e) => setSearch(e.target.value)} value={searchQuery}/>
