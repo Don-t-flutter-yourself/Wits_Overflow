@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const Categories = () => {
-
+//Categories users can post questions based on
   const categories = [
     { Category: "Software Design", Description: "Questions related to Software Design, Design Patterns, Architectures Styles, UML Diagrams, Testing, etc." },
     { Category: "Advanced Analysis of Algorithms", Description: "Questions related to Algorithms, Dynamic Programming, Sort/Search/Greedy Algorithms, Complexities(Big O notation, proofs), Artificial Intelligence, Computational Geometry, etc." },
@@ -78,7 +78,7 @@ const Categories = () => {
       setCategoriesT(items) ;
     });
   }
-
+//creating empty arrays for categories
   const setCategories = (postsList) => {
     var SDArr = []
     var AAAArr = []
@@ -88,6 +88,7 @@ const Categories = () => {
     var MLArr = []
     var FLAArr = []
 
+    //Add questions related to that category
     for (var i = 0; i < postsList.length; ++i) {
       if (postsList[i].u_category === "Software Design") SDArr.push(postsList[i])
       else if (postsList[i].u_category === "Advanced Analysis of Algorithms") AAAArr.push(postsList[i])
@@ -105,7 +106,6 @@ const Categories = () => {
     setML(MLArr)
     setFLA(FLAArr)
   }
-
   const setCategoriesP = (postsList) => {
     var SDArrP = []
     var AAAArrP = []
@@ -115,6 +115,7 @@ const Categories = () => {
     var MLArrP = []
     var FLAArrP = []
 
+    //Push questions inside the array
     for (var i = 0; i < postsList.length; ++i) {
       if (postsList[i].u_category === "Software Design" && postsList[i].u_Upvote >=2)
       {
@@ -157,7 +158,7 @@ const Categories = () => {
     setMLP(MLArrP)
     setFLAP(FLAArrP)
   }
-
+//push questions to an array
   const setCategoriesT = (postsList) => {
     var SDArrT = []
     var AAAArrT = []
@@ -221,7 +222,7 @@ const Categories = () => {
     else if (cat === "Machine Learning") setMLView(!MLView)
     else if (cat === "Formal Languages and Automata") setFLAView(!FLAView)
   }
-
+//Get popular questions
   const Popular = (cat) => {
     if (cat === "Software Design"){ 
       setSDViewP(!SDViewP)
@@ -245,7 +246,7 @@ const Categories = () => {
       setFLAViewP(!FLAViewP)
     } 
   }
-
+//getting newly added questions
   const Today = (cat) => {
     if (cat === "Software Design"){
       setSDViewT(!SDViewT)
@@ -271,7 +272,7 @@ const Categories = () => {
   }
 
   const nav = useNavigate();
-
+//posting questions and its details
   function onPost(mystate) {
     nav('/details', {
       state: {
