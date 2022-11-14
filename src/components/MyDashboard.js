@@ -4,7 +4,7 @@ import "../components/navbar.css";
 import firebase from "../firebase/index";
 import { useEffect, useState } from 'react';
 import Categories from "../components/categories";
-
+//render the dashboard
 const Dashboard = () => {
     //     const [category, setCategoty] = useState([]);
 
@@ -42,6 +42,8 @@ const Dashboard = () => {
 //         getMyAnswers();
 //     });
 
+    
+    //return the post page
     return (
         <div className='mypostPage'>
     <Categories/>
